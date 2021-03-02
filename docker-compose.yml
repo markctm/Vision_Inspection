@@ -7,8 +7,6 @@ services:
     container_name: Vision_Inspection
 
     #command: python3 ./video_converter.py 
-    volumes:
-      - "home/pi:home/pi"
     devices:
       - "/dev/vchiq:/dev/vchiq"
       - "/dev/vcsm:/dev/vcsm"
