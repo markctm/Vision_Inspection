@@ -2,7 +2,7 @@ version: '3'
 services:
   inspection_service:
     build: 
-      dockerfile: Dockerfile
+      dockerfile: DockerFile
       context: . 
     container_name: Vision_Inspection
 
