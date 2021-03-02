@@ -1,0 +1,14 @@
+version: '3'
+services:
+  Inspection_Service:
+    build: 
+      dockerfile: Dockerfile
+      context: . 
+    container_name: Vision_Inspection
+
+    #command: python3 ./video_converter.py 
+    volumes:
+      - "home/pi/Desktop/vision_inspection/dir:home/pi/Desktop/vision_inspection/dir"
+    devices:
+      - "/dev/vchiq:/dev/vchiq"
+      - "/dev/vcsm:/dev/vcsm"
