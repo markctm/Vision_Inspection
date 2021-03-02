@@ -1,6 +1,6 @@
 version: '3'
 services:
-  Inspection_Service:
+  inspection_service:
     build: 
       dockerfile: Dockerfile
       context: . 
