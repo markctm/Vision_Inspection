@@ -1,0 +1,16 @@
+cycler
+imutils
+joblib
+kiwisolver
+matplotlib
+numpy
+picamera
+Pillow
+pkg-resources
+pyparsing
+python-dateutil
+python-time
+scikit-learn
+scipy
+six
+threadpoolctl
