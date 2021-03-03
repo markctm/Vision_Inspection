@@ -8,6 +8,8 @@ services:
     command: /bin/bash
     stdin_open: true
     #command: python3 ./video_converter.py 
+    volumes:
+      - /home/pi/Desktop/vision_inspection/code:/home/pi/Desktop/vision_inspection/code
     devices:
       - "/dev/vchiq:/dev/vchiq"
       - "/dev/vcsm:/dev/vcsm"
