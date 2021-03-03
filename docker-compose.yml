@@ -11,6 +11,8 @@ services:
     #command: python3 ./video_converter.py 
     volumes:
       - /home/pi/Desktop/vision_inspection/code:/home/pi/Desktop/vision_inspection/code
+      - /home/pi/.Xauthority:/home/pi/.Xauthority:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix
     devices:
       - "/dev/vchiq:/dev/vchiq"
       - "/dev/vcsm:/dev/vcsm"
