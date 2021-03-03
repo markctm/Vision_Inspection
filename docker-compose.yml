@@ -5,7 +5,8 @@ services:
       dockerfile: DockerFile
       context: . 
     container_name: Vision_Inspection
-
+    command: /bin/bash
+    stdin_open: true
     #command: python3 ./video_converter.py 
     devices:
       - "/dev/vchiq:/dev/vchiq"
