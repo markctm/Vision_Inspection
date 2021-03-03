@@ -7,6 +7,7 @@ services:
     container_name: Vision_Inspection
     command: /bin/bash
     stdin_open: true
+    tty: true
     #command: python3 ./video_converter.py 
     volumes:
       - /home/pi/Desktop/vision_inspection/code:/home/pi/Desktop/vision_inspection/code
