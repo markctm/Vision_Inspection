@@ -13,3 +13,7 @@ services:
     devices:
       - "/dev/vchiq:/dev/vchiq"
       - "/dev/vcsm:/dev/vcsm"
+    environment:
+      - DISPLAY=$DISPLAY
+    privileged: true
+    
