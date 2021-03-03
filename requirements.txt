@@ -6,7 +6,6 @@ matplotlib
 numpy
 picamera
 Pillow
-pkg-resources
 pyparsing
 python-dateutil
 python-time
