@@ -165,6 +165,8 @@ class Preprocess():
     
     
     def custom_processing(self,imReference,frame1):
+            
+        print("Chegou aqui ")  
     
         try:
             x_detect,y_detect,score=self.feature_match(imReference, frame1)
@@ -184,11 +186,13 @@ class Preprocess():
             #imagem_recorte=np.empty((550,550))
             #imagem=frame1[y_detect-250:y_detect+300,x_detect-350:x_detect+200]
             #cv2.rectangle(frame1,(x_detect-250,y_detect-300),(x_detect+350,y_detect+200),(255,255,0),2)
-            imagem=self.segmentation_solo(frame1)
+            #imagem=self.segmentation_solo(frame1)
+            
+            
             try:
                 imReg, h = self.alignImages(imagem, imReference)
                 result=True
-                
+                print("Imagem Alinhada")
             except:
                 print("Erro ao alinhar")
                 imReg= frame1

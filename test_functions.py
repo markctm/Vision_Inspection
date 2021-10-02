@@ -1,5 +1,8 @@
 import numpy as np
 import cv2 
+from preprocessing import Preprocess
+
+
 
 class Test():
     
@@ -123,15 +126,52 @@ class Test():
         score=count_pixel/(len(change)*len(change[0]))
         print("score:" + str(score))
         
-        
-        
-        
-           
+
         #cv2.imshow("teste",change)
         
         return score
+        
+        
+    def check_Label(self,x1,y1,x2,y2,img1,imgref):
+
+        imagem_recorte1=np.empty((x2-x1,y2-y1))
+        imagem_recorte2=np.empty((x2-x1,y2-y1))
+
+        imagem_recorte1=img1[y1:y2,x1:x2]
+        imagem_recorte2=imgref[y1:y2,x1:x2]
+
+        cv2.imshow("teste1",imagem_recorte1)
+        cv2.imshow("teste2",imagem_recorte2)
+
+        return 0
 
 
+    def test_feature_match(self,tresh,retest,img1,imgref):
+            
+        print("Test_feature_match")  
+        
+        process = Preprocess("NA","NA") 
+        
+        try:
+            x_detect,y_detect,score=process.feature_match(img1, imgref)
+       
+        except:
+            score=0
+            pass
+        
+        print(str("Score of Feature Match") + str(score))
+        
+        fonte = cv2.FONT_HERSHEY_SIMPLEX
+        
+        if(score>int(tresh)):
+            cv2.putText(img1, "PASS - LABEL DETECTED", (50, 400), fonte, 3, (0,255,0), 3, cv2.LINE_AA)
+        else:
+            cv2.putText(img1, "FAIL- NO LABEL", (50, 400), fonte, 3, (0,0,255), 3, cv2.LINE_AA)
+        
+        return score
+
+        
+        
     def blank(self,x,y):
        # print("Hello Mundo!")
        # print(x)

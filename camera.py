@@ -82,7 +82,18 @@ class Camera():
             
             os.system('raspivid -br' + str(focus))
             pass
+    
+    def set_zoom(self,zoom):
         
+        if self.__camera_type=='WEBCAM': 
+        
+            os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=zoom_absolute='+ str(zoom))
+        
+        elif self.__camera_type=='PICAMERA':
+            
+   
+            pass
+             
         
     def set_focus_auto(self,focus_auto):
         os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=focus_auto=' + str(focus_auto))
@@ -99,6 +110,4 @@ class Camera():
         frame = cv2.resize(frame, (640, 480), interpolation=cv2.INTER_CUBIC)
         cv2.imwrite(str(name),frame)
         
-
-
 

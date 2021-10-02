@@ -54,7 +54,7 @@ class Testplan():
       
     
     self.imgRef = cv2.imread('Imagens_Golden/'+ str(self.__imgRef_nome), cv2.IMREAD_COLOR)
-    print('Imagem Golden Carregado')
+    print(str("Imagem Golden Carregado: ") + str(self.__imgRef_nome))
     
     return
 

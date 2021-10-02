@@ -100,6 +100,22 @@
    </property>
   </widget>
   
+    <widget class="QPushButton" name="take_pic">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Photo</string>
+   </property>
+  </widget>
+  
+  
+  
   
   
   

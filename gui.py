@@ -28,6 +28,7 @@ class GuiMain(QDialog):
         self.stop_button.clicked.connect(self.stop_webcam)
         self.load_button.clicked.connect(self.load_testplan)
         self.test_button.clicked.connect(self.track_webcam)
+        self.take_pic.clicked.connect(self.take_picture)
         self.track_enabled = False
         #self.testplan=Testplan(produto='solo',posto=1)
         #self.preprocess=Preprocess(produto='solo',posto=1)
@@ -35,9 +36,10 @@ class GuiMain(QDialog):
               
             
         self.capture=Camera(1280,1080,dispositivo=1,camera_type='WEBCAM')
-        self.capture.set_focus(10)
-        self.capture.set_exposure(100)
-        self.capture.set_exposure_auto(3)
+        self.capture.set_focus(120)
+        self.capture.set_exposure(20)
+        self.capture.set_exposure_auto(0)
+        self.capture.set_zoom(500)
         
         
     
@@ -64,18 +66,17 @@ class GuiMain(QDialog):
     
     def track_webcam(self, status):
         
-        self.preprocess.executa_preprocessamento(imgFrame=self.image,imgRef=self.imReference)
         #preprocess.segmentation(self.image)
-        self.imageTest, frame2, Result = self.preprocess.custom_processing(self.imReference,self.image)
+        #self.imageTest, frame2, Result = self.preprocess.custom_processing(self.imReference,self.image)
         
-        self.displayImage(self.image,1)
+        #self.displayImage(self.image,1)
         
-        self.stop_webcam()
+        #self.stop_webcam()
               
-        if(Result==True):
+        #if(Result==True):
                        
-            self.testplan.executa_teste(self.imageTest)     
-            self.displayImage(self.imageTest,2)
+        self.testplan.executa_teste(self.image)     
+        self.displayImage(self.image,2)
             
         #self.Test=False
          
@@ -87,16 +88,22 @@ class GuiMain(QDialog):
         self.timer.timeout.connect(self.update_frame)
         self.timer.start(5)
         
+    
+    def take_picture(self):
+       
+        ret, image_pic = self.capture.camera_read()
+        self.displayImage(image_pic,2)
+        self.capture.save_frame("photo.jpg")
+        
+    
     def update_frame(self):
         ret, self.image = self.capture.camera_read()
         #self.image = cv2.flip(self.image,1)
 
-              
         #if(Result==True):
                        
             #self.Test=True
                
-        
         self.displayImage(self.image,1)
      
         
@@ -129,11 +136,9 @@ class GuiMain(QDialog):
 if __name__ == '__main__':
 
     
-    
     app = QApplication(sys.argv)
     window = GuiMain()
     window.setWindowTitle('Inline Inspection')
-    
     
     window.show()
     sys.exit(app.exec_())
