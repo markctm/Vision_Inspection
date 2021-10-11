@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1029</width>
-    <height>697</height>
+    <width>1396</width>
+    <height>726</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -113,8 +113,8 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>510</y>
+     <x>10</x>
+     <y>540</y>
      <width>981</width>
      <height>171</height>
     </rect>
@@ -122,9 +122,9 @@
    <property name="currentIndex">
     <number>0</number>
    </property>
-   <widget class="QWidget" name="tab">
+   <widget class="QWidget" name="Camera_tab">
     <attribute name="title">
-     <string>Tab 1</string>
+     <string>Camera </string>
     </attribute>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
@@ -201,12 +201,77 @@
       </item>
      </layout>
     </widget>
+    <widget class="QPushButton" name="load_button_2">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>70</y>
+       <width>89</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Set</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Camera Settings</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="load_button_3">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>100</y>
+       <width>89</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save </string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QWidget" name="tab_2">
+   <widget class="QWidget" name="MES_tab">
     <attribute name="title">
-     <string>Tab 2</string>
+     <string>MES</string>
     </attribute>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Mes Settings</string>
+     </property>
+    </widget>
    </widget>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>510</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Configuration:</string>
+   </property>
   </widget>
   <zorder>take_pic</zorder>
   <zorder>start_button</zorder>
@@ -216,6 +281,7 @@
   <zorder>image_label2</zorder>
   <zorder>image_label1</zorder>
   <zorder>tabWidget</zorder>
+  <zorder>label_6</zorder>
  </widget>
  <resources/>
  <connections/>
