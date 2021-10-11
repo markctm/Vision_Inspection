@@ -1,0 +1,4 @@
+docker exec -it Vision_Inspection bash
+docker-compose up &
+xhost +
+
