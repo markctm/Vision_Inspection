@@ -114,12 +114,14 @@
    </property>
   </widget>
   
-  
-  
-  
-  
-  
-  
+  <widget class="QSlider" name="s_max">
+    <property name="maximum">
+      <number>255</number>
+    </property>
+    <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+    </property>
+  </widget>
  
   <zorder>start_button</zorder>
   <zorder>stop_button</zorder>
