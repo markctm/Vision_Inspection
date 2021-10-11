@@ -103,7 +103,7 @@ class GuiMain(QDialog):
         #if(Result==True):
                        
             #self.Test=True
-               
+        #Teste   
         self.displayImage(self.image,1)
      
         
