@@ -30,9 +30,9 @@ class GuiMain(QDialog):
         self.test_button.clicked.connect(self.track_webcam)
         self.take_pic.clicked.connect(self.take_picture)
         
-        self.focus_slide.clicked.connect(self.set_focus)
-        self.exposure_slide.clicked.connect(self.set_exposure)
-        self.zoom_slide.clicked.connect(self.set_zoom)
+        self.focus_slide.valueChanged.connect(self.set_focus)
+        self.exposure_slide.valueChanged.connect(self.set_exposure)
+        self.zoom_slide.valueChanged.connect(self.set_zoom)
 
         self.track_enabled = False
         #self.testplan=Testplan(produto='solo',posto=1)
