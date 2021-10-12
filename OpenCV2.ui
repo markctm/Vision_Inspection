@@ -100,7 +100,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="focus_label">
           <property name="text">
            <string>Focus</string>
           </property>
@@ -121,14 +121,14 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QLabel" name="exposure_slide">
+         <widget class="QLabel" name="exposure_label">
           <property name="text">
            <string>Exposure</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="s_min">
+         <widget class="QSlider" name="exposure_slide_3">
           <property name="maximum">
            <number>2047</number>
           </property>
@@ -142,14 +142,14 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QLabel" name="exposure_slide_2">
+         <widget class="QLabel" name="zoom_label">
           <property name="text">
            <string>Zoom</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="v_min">
+         <widget class="QSlider" name="zoom_slide">
           <property name="minimum">
            <number>100</number>
           </property>
