@@ -146,12 +146,11 @@ class GuiMain(QDialog):
 
     def set_zoom(self):
         
-         self.capture.set_focus(self.zoom_slide.value())
+         self.capture.set_zoom(self.zoom_slide.value())
 
     def set_exposure(self):
         
          self.capture.set_exposure(self.exposure_slide.value())
-
 
 
 
