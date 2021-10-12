@@ -109,7 +109,7 @@
         <item>
          <widget class="QSlider" name="focus_slide">
           <property name="maximum">
-           <number>179</number>
+           <number>250</number>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -130,7 +130,7 @@
         <item>
          <widget class="QSlider" name="s_min">
           <property name="maximum">
-           <number>255</number>
+           <number>2047</number>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -150,8 +150,11 @@
         </item>
         <item>
          <widget class="QSlider" name="v_min">
+          <property name="minimum">
+           <number>100</number>
+          </property>
           <property name="maximum">
-           <number>255</number>
+           <number>500</number>
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>

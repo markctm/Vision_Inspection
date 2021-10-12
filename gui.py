@@ -9,7 +9,7 @@ from camera import Camera
 import sys
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QTimer
-from PyQt5.QtWidgets import QApplication, QDialog,QFileDialog
+from PyQt5.QtWidgets import QApplication, QDialog,QFileDialog,QSlider
 from PyQt5.uic import loadUi
 import cv2
 import numpy as np
@@ -29,6 +29,11 @@ class GuiMain(QDialog):
         self.load_button.clicked.connect(self.load_testplan)
         self.test_button.clicked.connect(self.track_webcam)
         self.take_pic.clicked.connect(self.take_picture)
+        
+        self.focus_slide.clicked.connect(self.set_focus)
+        self.exposure_slide.clicked.connect(self.set_exposure)
+        self.zoom_slide.clicked.connect(self.set_zoom)
+
         self.track_enabled = False
         #self.testplan=Testplan(produto='solo',posto=1)
         #self.preprocess=Preprocess(produto='solo',posto=1)
@@ -104,7 +109,7 @@ class GuiMain(QDialog):
                        
             #self.Test=True
         #Teste  
-        print(str(self.focus_slide.value())) 
+       
          
         self.displayImage(self.image,1)
      
@@ -133,7 +138,22 @@ class GuiMain(QDialog):
         if window ==2:
             self.image_label2.setPixmap(QPixmap.fromImage(outImage))
             self.image_label2.setScaledContents(True)
+
+    def set_focus(self):
         
+         self.capture.set_focus(self.focus_slide.value())
+
+    def set_zoom(self):
+        
+         self.capture.set_focus(self.zoom_slide.value())
+
+    def set_exposure(self):
+        
+         self.capture.set_exposure(self.exposure_slide.value())
+
+
+
+
 
 if __name__ == '__main__':
 
