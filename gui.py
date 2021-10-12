@@ -34,6 +34,7 @@ class GuiMain(QDialog):
         self.exposure_slide.valueChanged.connect(self.set_exposure)
         self.zoom_slide.valueChanged.connect(self.set_zoom)
 
+        #Teste
         self.track_enabled = False
         #self.testplan=Testplan(produto='solo',posto=1)
         #self.preprocess=Preprocess(produto='solo',posto=1)

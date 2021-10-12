@@ -128,7 +128,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="exposure_slide_3">
+         <widget class="QSlider" name="exposure_slide">
           <property name="maximum">
            <number>2047</number>
           </property>
