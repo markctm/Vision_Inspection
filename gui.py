@@ -33,7 +33,7 @@ class GuiMain(QDialog):
         #self.testplan=Testplan(produto='solo',posto=1)
         #self.preprocess=Preprocess(produto='solo',posto=1)
         #self.imReference=self.testplan.get_imgRef()
-              
+      
             
         self.capture=Camera(1280,1080,dispositivo=1,camera_type='WEBCAM')
         self.capture.set_focus(120)
@@ -103,7 +103,9 @@ class GuiMain(QDialog):
         #if(Result==True):
                        
             #self.Test=True
-        #Teste   
+        #Teste  
+        print(str(self.focus_slide.value())) 
+         
         self.displayImage(self.image,1)
      
         
