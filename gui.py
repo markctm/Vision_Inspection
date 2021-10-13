@@ -93,10 +93,8 @@ class GuiMain(QDialog):
         #preprocess.segmentation(self.image)
         #self.imageTest, frame2, Result = self.preprocess.custom_processing(self.imReference,self.image)
         
-        #self.displayImage(self.image,1)
-        
+        #self.displayImage(self.image,1)  
         #self.stop_webcam()
-              
         #if(Result==True):
                        
         self.testplan.executa_teste(self.image)     
