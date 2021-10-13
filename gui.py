@@ -9,7 +9,7 @@ from camera import Camera
 import sys
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QTimer
-from PyQt5.QtWidgets import QApplication, QDialog,QFileDialog,QSlider
+from PyQt5.QtWidgets import QApplication, QDialog,QFileDialog,QSlider,QMessageBox
 from PyQt5.uic import loadUi
 import cv2
 import numpy as np
@@ -25,6 +25,7 @@ class GuiMain(QDialog):
         self.image = None
         self.Test=False
         self.imageTest=None
+        self.tesplan_load=False
         self.start_button.clicked.connect(self.start_webcam)
         self.stop_button.clicked.connect(self.stop_webcam)
         self.load_button.clicked.connect(self.load_testplan)
@@ -43,20 +44,21 @@ class GuiMain(QDialog):
       
             
         self.capture=Camera(1280,1080,dispositivo=1,camera_type='WEBCAM')
-        self.capture.set_focus(120)
-        self.capture.set_exposure(20)
+        #self.capture.set_focus(120)
+        #self.capture.set_exposure(20)
         self.capture.set_exposure_auto(0)
-        self.capture.set_zoom(500)
+        #self.capture.set_zoom(500)
         
         
-    
     def load_testplan(self):
         
+        self.tesplan_load=False
         options = QFileDialog.Options()
         #notepad_text = self.texto.toPlainText()
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
         
+
         if fileName:
         
             #Inicializa Testplan
@@ -67,6 +69,10 @@ class GuiMain(QDialog):
             self.preprocess= Preprocess(produto='solo',posto=1)
 
             self.load_config()
+            self.tesplan_load=True
+            #QMessageBox.about(self, "Title", "Tes")
+        
+         
 
     def load_config(self):
 
@@ -90,17 +96,22 @@ class GuiMain(QDialog):
 
     def track_webcam(self, status):
         
-        #preprocess.segmentation(self.image)
-        #self.imageTest, frame2, Result = self.preprocess.custom_processing(self.imReference,self.image)
-        
-        #self.displayImage(self.image,1)  
-        #self.stop_webcam()
-        #if(Result==True):
-                       
-        self.testplan.executa_teste(self.image)     
-        self.displayImage(self.image,2)
+        if self.tesplan_load==True:
+
+            #preprocess.segmentation(self.image)
+            #self.imageTest, frame2, Result = self.preprocess.custom_processing(self.imReference,self.image)
             
-        #self.Test=False
+            #self.displayImage(self.image,1)  
+            #self.stop_webcam()
+            #if(Result==True):
+                            
+            self.testplan.executa_teste(self.image)     
+            self.displayImage(self.image,2)
+                
+            #self.Test=False
+        else:
+            QMessageBox.about(self, "Message", "No Testplan Loaded. Please select tesplan")
+
          
     def start_webcam(self):
        
