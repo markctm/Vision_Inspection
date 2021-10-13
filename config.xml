@@ -1,11 +1,17 @@
 <config>
   <camera>
-    <zoom>10</zoom>
-    <exposure>10</exposure>
-    <focus>10</focus>
+    <zoom>500</zoom>
+    <exposure>20</exposure>
+    <focus>120</focus>
   </camera>
    <mes>
-    <assembly>124545</assembly>
-    <customer>INGENICO</customer>
+    <Customer>INGENICO</Customer>
+    <Division>INGENICO</Division>
+    <SerialNumber>P0750B011321A15430</SerialNumber>
+    <AssemblyNumber>2962203895ACCARGA</AssemblyNumber>
+    <TesterName>BRBELTE010</TesterName>
+    <ProcessStep>Bateria</ProcessStep>
+    
   </mes> 
 </config>
+

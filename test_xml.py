@@ -15,15 +15,15 @@ for x in root[0]:
 '''
 
 # findin elements
-for x in root.findall('camera'):
-    item=x.find('zoom').text
+for x in root.findall('mes'):
+    item=x.find('Customer').text
     print(str(item))
 
 
 #Writing elements
 
-for x in root.iter('zoom'):
-    x.text=str(300)
+#for x in root.iter('zoom'):
+#    x.text=str(300)
 
-tree.write('config.xml')
+#tree.write('config.xml')
 
