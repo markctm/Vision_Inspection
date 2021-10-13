@@ -15,6 +15,7 @@ import cv2
 import numpy as np
 from testplan import *
 from preprocessing import Preprocess
+import xml.etree.ElementTree as ET
 
 
 class GuiMain(QDialog):
@@ -50,11 +51,7 @@ class GuiMain(QDialog):
         
     
     def load_testplan(self):
-        """
-        Se o botão salvar for clicado, exibe a caixa de diálogo 
-        para salvar o texto, no campo de edição, em um arquivo.
-        """
-
+        
         options = QFileDialog.Options()
         #notepad_text = self.texto.toPlainText()
         options |= QFileDialog.DontUseNativeDialog
@@ -69,6 +66,20 @@ class GuiMain(QDialog):
             #Inicializa Modelo de Preprocessamento
             self.preprocess= Preprocess(produto='solo',posto=1)
 
+            self.load_config()
+
+    def load_config(self):
+
+        tree = ET.parse('config.xml')
+        root = tree.getroot()
+    
+        for x in root.findall('camera'):
+            zoom=x.find('zoom').text
+            self.zoom_slide.setValue(int(zoom))
+            exposure=x.find('exposure').text
+            self.exposure_slide.setValue(int(zoom))
+            focus=x.find('focus').text
+            self.focus_slide.setValue(int(zoom))
     
     def track_webcam(self, status):
         

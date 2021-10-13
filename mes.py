@@ -1,6 +1,19 @@
 
 import requests
 
+
+
+class Engineering_MES_Functions():
+    
+    '''
+        Classe Camera -> Configuracao de recursos da camera          
+    '''
+       
+    def __init__(self,WIDTH,HEIGHT,dispositivo=1,camera_type='WEBCAM'):
+
+
+
+
 url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
 #headers = {'content-type': 'application/soap+xml'}
 headers = {'content-type': 'text/xml'}

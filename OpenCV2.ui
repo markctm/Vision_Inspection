@@ -10,6 +10,11 @@
     <height>864</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Microsoft New Tai Lue</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
@@ -81,7 +86,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="Camera_tab">
     <attribute name="title">
@@ -90,7 +95,7 @@
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>180</x>
        <y>40</y>
        <width>341</width>
        <height>91</height>
@@ -165,23 +170,10 @@
       </item>
      </layout>
     </widget>
-    <widget class="QPushButton" name="load_button_2">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>70</y>
-       <width>89</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Set</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>170</x>
        <y>10</y>
        <width>151</width>
        <height>16</height>
@@ -194,8 +186,8 @@
     <widget class="QPushButton" name="load_button_3">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>100</y>
+       <x>570</x>
+       <y>110</y>
        <width>89</width>
        <height>25</height>
       </rect>
@@ -207,8 +199,8 @@
     <widget class="QPushButton" name="start_button">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>40</y>
+       <x>10</x>
+       <y>20</y>
        <width>89</width>
        <height>25</height>
       </rect>
@@ -220,7 +212,7 @@
     <widget class="QPushButton" name="take_pic">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>10</x>
        <y>100</y>
        <width>89</width>
        <height>25</height>
@@ -233,8 +225,8 @@
     <widget class="QPushButton" name="stop_button">
      <property name="geometry">
       <rect>
-       <x>500</x>
-       <y>40</y>
+       <x>10</x>
+       <y>60</y>
        <width>89</width>
        <height>25</height>
       </rect>
@@ -299,6 +291,50 @@
     </rect>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>30</y>
+     <width>601</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>36</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>No Tesplan Configured</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="load_button_4">
+   <property name="geometry">
+    <rect>
+     <x>1190</x>
+     <y>780</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>1160</x>
+     <y>750</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Inspections Configurations</string>
+   </property>
+  </widget>
   <zorder>test_button</zorder>
   <zorder>load_button</zorder>
   <zorder>image_label2</zorder>
@@ -307,6 +343,9 @@
   <zorder>label_6</zorder>
   <zorder>label_7</zorder>
   <zorder>textBrowser</zorder>
+  <zorder>label_2</zorder>
+  <zorder>load_button_4</zorder>
+  <zorder>label</zorder>
  </widget>
  <resources/>
  <connections/>
