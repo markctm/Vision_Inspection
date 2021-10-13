@@ -86,7 +86,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="Camera_tab">
     <attribute name="title">
@@ -243,14 +243,134 @@
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>10</y>
+       <x>20</x>
+       <y>20</y>
        <width>151</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Mes Settings</string>
+      <string>Customer:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Division:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Assembly Number:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tester Name:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Process Step:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_customer">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>20</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_division">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>33</y>
+       <width>47</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_assembly_number">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>60</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_tester_name">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>80</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_process_step">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>100</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -290,14 +410,14 @@
    <property name="geometry">
     <rect>
      <x>740</x>
-     <y>30</y>
+     <y>50</y>
      <width>601</width>
      <height>61</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>36</pointsize>
+     <pointsize>31</pointsize>
      <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
@@ -307,32 +427,6 @@
    </property>
    <property name="text">
     <string>No Tesplan </string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="load_button_4">
-   <property name="geometry">
-    <rect>
-     <x>1190</x>
-     <y>780</y>
-     <width>89</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Save </string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>1160</x>
-     <y>750</y>
-     <width>151</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Inspections Configurations</string>
    </property>
   </widget>
   <widget class="QTextEdit" name="textEdit">
@@ -356,8 +450,6 @@
   <zorder>label_6</zorder>
   <zorder>label_7</zorder>
   <zorder>label_2</zorder>
-  <zorder>load_button_4</zorder>
-  <zorder>label</zorder>
   <zorder>textEdit</zorder>
  </widget>
  <resources/>

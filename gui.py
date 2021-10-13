@@ -42,6 +42,13 @@ class GuiMain(QDialog):
         #self.preprocess=Preprocess(produto='solo',posto=1)
         #self.imReference=self.testplan.get_imgRef()
       
+
+        #MES
+        self.customer=""
+        self.division=""
+        self.assembly_nummber=""
+        self.tester_name=""
+        self.process_step=""
             
         self.capture=Camera(1280,1080,dispositivo=1,camera_type='WEBCAM')
         #self.capture.set_focus(120)
@@ -84,7 +91,6 @@ class GuiMain(QDialog):
             exposure=x.find('exposure').text      
             focus=x.find('focus').text
         
-
         #Melhorar isso
         self.zoom_slide.setValue(int(zoom))
         self.exposure_slide.setValue(int(exposure))
@@ -93,6 +99,20 @@ class GuiMain(QDialog):
         self.set_focus()
         self.set_zoom()
         self.set_exposure()
+
+        for x in root.findall('mes'):
+            self.customer=x.find('Customer').text
+            self.division=x.find('Division').text      
+            self.assembly_nummber=x.find('AssemblyNumber').text
+            self.tester_name=x.find('TesterName').text
+            self.process_step=x.find('ProcessStep').text
+        
+        self.label_customer.setText(str( self.customer))
+        self.label_division.setText(str( self.division))
+        self.label_assembly_number.setText(str(self.assembly_nummber))
+        self.label_tester_name.setText(str(self.tester_name))
+        self.label_process_step.setText(str(self.process_step))
+
 
     def track_webcam(self, status):
         
