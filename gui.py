@@ -75,12 +75,19 @@ class GuiMain(QDialog):
     
         for x in root.findall('camera'):
             zoom=x.find('zoom').text
-            self.zoom_slide.setValue(int(zoom))
-            exposure=x.find('exposure').text
-            self.exposure_slide.setValue(int(zoom))
+            exposure=x.find('exposure').text      
             focus=x.find('focus').text
-            self.focus_slide.setValue(int(zoom))
-    
+        
+
+        #Melhorar isso
+        self.zoom_slide.setValue(int(zoom))
+        self.exposure_slide.setValue(int(exposure))
+        self.focus_slide.setValue(int(focus))
+
+        self.set_focus()
+        self.set_zoom()
+        self.set_exposure()
+
     def track_webcam(self, status):
         
         #preprocess.segmentation(self.image)
@@ -100,10 +107,16 @@ class GuiMain(QDialog):
     def start_webcam(self):
        
         self.image_label2.setText("Nenhum Teste Realizado")
+
+        self.set_focus()
+        self.set_zoom()
+        self.set_exposure(
+
         
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_frame)
         self.timer.start(5)
+
         
     
     def take_picture(self):
