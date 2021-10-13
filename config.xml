@@ -1,11 +1,11 @@
-<settables>
+<config>
   <camera>
-    <zoom>300</zoom>
-    <exposure>100</exposure>
-    <focus>50</focus>
+    <zoom>10</zoom>
+    <exposure>10</exposure>
+    <focus>10</focus>
   </camera>
    <mes>
     <assembly>124545</assembly>
     <customer>INGENICO</customer>
   </mes> 
-</settables>
+</config>
