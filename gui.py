@@ -108,7 +108,7 @@ class GuiMain(QDialog):
 
         self.set_focus()
         self.set_zoom()
-        self.set_exposure(
+        self.set_exposure()
 
         
         self.timer = QTimer(self)
