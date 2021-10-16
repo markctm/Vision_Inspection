@@ -183,19 +183,6 @@
       <string>Camera Settings</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="save_camera_config_button">
-     <property name="geometry">
-      <rect>
-       <x>560</x>
-       <y>110</y>
-       <width>89</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Save </string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="start_button">
      <property name="geometry">
       <rect>
@@ -233,6 +220,19 @@
      </property>
      <property name="text">
       <string>Stop</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="save_button">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>100</y>
+       <width>89</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save</string>
      </property>
     </widget>
    </widget>
