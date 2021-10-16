@@ -162,8 +162,11 @@ class GuiMain(QDialog):
             #self.Test=True
         #Teste  
        
-         
-        self.displayImage(self.image,1)
+        if self.image is None:
+            QMessageBox.about(self, "Camera", "Error Camera !!")
+            self.stop_webcam()
+        else:
+            self.displayImage(self.image,1)
      
         
     def stop_webcam(self):
