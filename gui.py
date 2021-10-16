@@ -75,43 +75,45 @@ class GuiMain(QDialog):
             #Inicializa Modelo de Preprocessamento
             self.preprocess= Preprocess(produto='solo',posto=1)
 
-            self.load_config()
+            
+            self.load_config(self.testplan.produto)
             self.tesplan_load=True
-            #QMessageBox.about(self, "Title", "Tes")
             self.label_2.setText(str(self.testplan.produto))
-         
 
-    def load_config(self):
-
-        tree = ET.parse('config.xml')
-        root = tree.getroot()
-    
-        for x in root.findall('camera'):
-            zoom=x.find('zoom').text
-            exposure=x.find('exposure').text      
-            focus=x.find('focus').text
+    def load_config(self,produto):
+        try:
+            tree = ET.parse(str(produto) +'.xml')
+            root = tree.getroot()
         
-        #Melhorar isso
-        self.zoom_slide.setValue(int(zoom))
-        self.exposure_slide.setValue(int(exposure))
-        self.focus_slide.setValue(int(focus))
+            for x in root.findall('camera'):
+                zoom=x.find('zoom').text
+                exposure=x.find('exposure').text      
+                focus=x.find('focus').text
+            
+            #Melhorar isso
+            self.zoom_slide.setValue(int(zoom))
+            self.exposure_slide.setValue(int(exposure))
+            self.focus_slide.setValue(int(focus))
 
-        self.set_focus()
-        self.set_zoom()
-        self.set_exposure()
+            self.set_focus()
+            self.set_zoom()
+            self.set_exposure()
 
-        for x in root.findall('mes'):
-            self.customer=x.find('Customer').text
-            self.division=x.find('Division').text      
-            self.assembly_nummber=x.find('AssemblyNumber').text
-            self.tester_name=x.find('TesterName').text
-            self.process_step=x.find('ProcessStep').text
+            for x in root.findall('mes'):
+                self.customer=x.find('Customer').text
+                self.division=x.find('Division').text      
+                self.assembly_nummber=x.find('AssemblyNumber').text
+                self.tester_name=x.find('TesterName').text
+                self.process_step=x.find('ProcessStep').text
+            
+            self.label_customer.setText(str( self.customer))
+            self.label_division.setText(str( self.division))
+            self.label_assembly_number.setText(str(self.assembly_nummber))
+            self.label_tester_name.setText(str(self.tester_name))
+            self.label_process_step.setText(str(self.process_step))
         
-        self.label_customer.setText(str( self.customer))
-        self.label_division.setText(str( self.division))
-        self.label_assembly_number.setText(str(self.assembly_nummber))
-        self.label_tester_name.setText(str(self.tester_name))
-        self.label_process_step.setText(str(self.process_step))
+        except:
+            QMessageBox.about(self, "Message", "Erro wwhile loading cconfig flle")
 
 
     def track_webcam(self, status):
@@ -138,7 +140,6 @@ class GuiMain(QDialog):
         self.set_focus()
         self.set_zoom()
         self.set_exposure()
-
         
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_frame)
