@@ -197,19 +197,17 @@ class GuiMain(QDialog):
         
          self.capture.set_zoom(self.zoom_slide.value())
 
-    def save_camera_cfg(self):
-
-        name = QFileDialog.getSaveFileName(self, 'Save File')
-        print(str(name))
-
-        tree = ET.ElementTree(str(self.testplan.produto)+".xml")
-        tree.write("filename.xml")
-
-
     def set_exposure(self):
         
          self.capture.set_exposure(self.exposure_slide.value())
 
+    def save_camera_cfg(self):
+
+        name = QFileDialog.getSaveFileName(self, 'Save File',"" ," XML File (*.xml)")
+        print(str(name))
+
+        tree = ET.ElementTree(str(self.testplan.produto)+".xml")
+        tree.write("filename.xml")
 
 
 
