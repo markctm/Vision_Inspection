@@ -31,7 +31,7 @@ class GuiMain(QDialog):
         self.load_button.clicked.connect(self.load_testplan)
         self.test_button.clicked.connect(self.track_webcam)
         self.take_pic.clicked.connect(self.take_picture)
-        
+
         self.save_button.clicked.connect(self.save_camera_config)
         
         self.focus_slide.valueChanged.connect(self.set_focus)
@@ -199,14 +199,17 @@ class GuiMain(QDialog):
         
          self.capture.set_zoom(self.zoom_slide.value())
 
+
+    def save_camera_config(self):
+        print("OIIIIIIIIIIIIIIII")
+        #name = QFileDialog.getSaveFileName(self, 'Save File')
+        #print(str(name))
+
     def set_exposure(self):
         
          self.capture.set_exposure(self.exposure_slide.value())
 
-    def save_camera_config(self):
-        print("OIIIIIIIIIIIIIIII")
-        name = QFileDialog.getSaveFileName(self, 'Save File')
-        print(str(name))
+
 
 
 
