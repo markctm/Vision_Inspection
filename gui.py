@@ -73,7 +73,7 @@ class GuiMain(QDialog):
             self.imReference = self.testplan.get_imgRef()
               
             #Inicializa Modelo de Preprocessamento
-            self.preprocess= Preprocess(produto='solo',posto=1)
+            #self.preprocess= Preprocess(produto='solo',posto=1)
 
             
             self.load_config(self.testplan.produto)
@@ -197,17 +197,18 @@ class GuiMain(QDialog):
         
          self.capture.set_zoom(self.zoom_slide.value())
 
-
     def save_camera_cfg(self):
-        print("OIIIIIIIIIIIIIIII")
+
         name = QFileDialog.getSaveFileName(self, 'Save File')
         print(str(name))
- 
+
+        tree = ET.ElementTree(str(self.testplan.produto)+".xml")
+        tree.write("filename.xml")
+
 
     def set_exposure(self):
         
          self.capture.set_exposure(self.exposure_slide.value())
-
 
 
 
