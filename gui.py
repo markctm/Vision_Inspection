@@ -206,7 +206,7 @@ class GuiMain(QDialog):
         name = QFileDialog.getSaveFileName(self, 'Save File',str(self.testplan.produto) ," XML File (*.xml)")
         print(str(name))
 
-        tree = ET.parse(str(name) + ".xml")
+        tree = ET.parse(str(name[0]) + ".xml")
         root = tree.getroot()
 
         for x in root.iter('zoom'):
