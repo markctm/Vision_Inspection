@@ -31,7 +31,7 @@ class GuiMain(QDialog):
         self.load_button.clicked.connect(self.load_testplan)
         self.test_button.clicked.connect(self.track_webcam)
         self.take_pic.clicked.connect(self.take_picture)
-        self.save_camera_config_button.connect(self.save_camera_config)
+        self.save_camera_config_button.clicked.connect(self.save_camera_config)
         
         self.focus_slide.valueChanged.connect(self.set_focus)
         self.exposure_slide.valueChanged.connect(self.set_exposure)
