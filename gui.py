@@ -78,7 +78,7 @@ class GuiMain(QDialog):
             self.load_config()
             self.tesplan_load=True
             #QMessageBox.about(self, "Title", "Tes")
-        
+            self.label_2.setText(str(fileName))
          
 
     def load_config(self):
@@ -163,7 +163,7 @@ class GuiMain(QDialog):
         #Teste  
        
         if self.image is None:
-            QMessageBox.about(self, "Camera", "Error Camera !!")
+            QMessageBox.about(self, "Camera       ", "Error Camera !!")
             self.stop_webcam()
         else:
             self.displayImage(self.image,1)
