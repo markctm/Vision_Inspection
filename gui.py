@@ -203,12 +203,37 @@ class GuiMain(QDialog):
 
     def save_camera_cfg(self):
 
-        name = QFileDialog.getSaveFileName(self, 'Save File',"" ," XML File (*.xml)")
+        name = QFileDialog.getSaveFileName(self, 'Save File',str(self.testplan.produto) ," XML File (*.xml)")
         print(str(name))
 
-        tree = ET.ElementTree(str(self.testplan.produto)+".xml")
-        tree.write("filename.xml")
+        tree = ET.ElementTree(name)
+        root = tree.getroot()
 
+        for x in root.iter('zoom'):
+            x.text=str(self.zoom_slide.value())
+        
+        for x in root.iter('exposure'):
+            x.text=str(self.exposure_slide.value())
+       
+        for x in root.iter('focus'):
+            x.text=str(self.focus_slide.value())
+        
+        for x in root.iter('Customer'):
+            x.text=str(self.customer)
+        
+        for x in root.iter('Division'):
+            x.text=str(self.customer)
+       
+        for x in root.iter('AssemblyNumber'):
+            x.text=str(self.assembly_nummber)
+                
+        for x in root.iter('TesterName'):
+            x.text=str(self.tester_name)
+                       
+        for x in root.iter('ProcessStep'):
+            x.text=str(self.process_step)
+     
+        tree.write(name)
 
 
 if __name__ == '__main__':
