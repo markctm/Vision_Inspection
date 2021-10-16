@@ -165,12 +165,13 @@ class Test():
         
         if(score>int(tresh)):
             cv2.putText(img1, "PASS - LABEL DETECTED", (50, 400), fonte, 3, (0,255,0), 3, cv2.LINE_AA)
+            
         else:
             cv2.putText(img1, "FAIL- NO LABEL", (50, 400), fonte, 3, (0,0,255), 3, cv2.LINE_AA)
         
+        cv2.putText(img1, str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
         return score
-
-        
+  
         
     def blank(self,x,y):
        # print("Hello Mundo!")

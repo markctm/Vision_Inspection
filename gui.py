@@ -206,9 +206,9 @@ class GuiMain(QDialog):
         name = QFileDialog.getSaveFileName(self, 'Save File',str(self.testplan.produto) ," XML File (*.xml)")
         print(str(name))
 
-        if name:
-            xml_str="""<config>
-                    <camera>
+        if name:      
+             xml_str="""<config>
+                        <camera>
                         <zoom>""" + str(self.zoom_slide.value()) + """</zoom>
                         <exposure>""" + str(self.exposure_slide.value()) + """</exposure>
                         <focus>"""+  str(self.focus_slide.value()) + """</focus>
@@ -218,8 +218,7 @@ class GuiMain(QDialog):
                         <Division>""" + str(self.customer) + """</Division>
                         <AssemblyNumber>""" + str(self.assembly_nummber) + """</AssemblyNumber>
                         <TesterName>""" + str(self.tester_name)+ """</TesterName>
-                        <ProcessStep>"""+ str(self.process_step) + """</ProcessStep>
-                        
+                        <ProcessStep>"""+ str(self.process_step) + """</ProcessStep>                     
                     </mes> 
                     </config>
                     """
@@ -228,39 +227,6 @@ class GuiMain(QDialog):
             file.write(xml_str)
             file.close()
 
-
-        """
-        save_xml = ET.fromstring(xml_str)
-        tree = ET.parse(save_xml)
-        root = tree.getroot()
-        tree.write(name)
-
-       
-
-        for x in root.iter('zoom'):
-            x.text=str(self.zoom_slide.value())
-        
-        for x in root.iter('exposure'):
-            x.text=str(self.exposure_slide.value())
-       
-        for x in root.iter('focus'):
-            x.text=str(self.focus_slide.value())
-        
-        for x in root.iter('Customer'):
-            x.text=str(self.customer)
-        
-        for x in root.iter('Division'):
-            x.text=str(self.customer)
-       
-        for x in root.iter('AssemblyNumber'):
-            x.text=str(self.assembly_nummber)
-                
-        for x in root.iter('TesterName'):
-            x.text=str(self.tester_name)
-                       
-        for x in root.iter('ProcessStep'):
-            x.text=str(self.process_step)
-     """
         #tree.write(name)
 
 
