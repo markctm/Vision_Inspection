@@ -183,7 +183,7 @@
       <string>Camera Settings</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="save_camera_config">
+    <widget class="QPushButton" name="save_camera_config_button">
      <property name="geometry">
       <rect>
        <x>560</x>
