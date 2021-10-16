@@ -58,10 +58,6 @@ def Check_Ok_test(url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterNa
 
 
 
-
-
-
-
 def send_test_result(test_data):
 
    url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
