@@ -203,6 +203,7 @@ class GuiMain(QDialog):
          self.capture.set_exposure(self.exposure_slide.value())
 
     def save_camera_config(self):
+        print("OIIIIIIIIIIIIIIII")
         name = QFileDialog.getSaveFileName(self, 'Save File')
         print(str(name))
 
