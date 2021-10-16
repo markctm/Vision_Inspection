@@ -31,6 +31,7 @@ class GuiMain(QDialog):
         self.load_button.clicked.connect(self.load_testplan)
         self.test_button.clicked.connect(self.track_webcam)
         self.take_pic.clicked.connect(self.take_picture)
+        self.save_camera_config.connect(self.save_camera_config)
         
         self.focus_slide.valueChanged.connect(self.set_focus)
         self.exposure_slide.valueChanged.connect(self.set_exposure)
@@ -156,13 +157,7 @@ class GuiMain(QDialog):
     
     def update_frame(self):
         ret, self.image = self.capture.camera_read()
-        #self.image = cv2.flip(self.image,1)
 
-        #if(Result==True):
-                       
-            #self.Test=True
-        #Teste  
-       
         if self.image is None:
             QMessageBox.about(self, "Camera       ", "Error Camera !!")
             self.stop_webcam()
@@ -207,6 +202,9 @@ class GuiMain(QDialog):
         
          self.capture.set_exposure(self.exposure_slide.value())
 
+    def save_camera_config(self):
+        name = QFileDialog.getSaveFileName(self, 'Save File')
+        print(str(name))
 
 
 

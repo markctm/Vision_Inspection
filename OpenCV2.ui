@@ -86,7 +86,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="Camera_tab">
     <attribute name="title">
@@ -183,7 +183,7 @@
       <string>Camera Settings</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="load_button_3">
+    <widget class="QPushButton" name="save_camera_config">
      <property name="geometry">
       <rect>
        <x>560</x>
