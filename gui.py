@@ -31,9 +31,7 @@ class GuiMain(QDialog):
         self.load_button.clicked.connect(self.load_testplan)
         self.test_button.clicked.connect(self.track_webcam)
         self.take_pic.clicked.connect(self.take_picture)
-
-        self.save_button.clicked.connect(self.save_camera_config)
-        
+        self.save_button.clicked.connect(self.save_camera_cfg)
         self.focus_slide.valueChanged.connect(self.set_focus)
         self.exposure_slide.valueChanged.connect(self.set_exposure)
         self.zoom_slide.valueChanged.connect(self.set_zoom)
@@ -61,7 +59,7 @@ class GuiMain(QDialog):
         
     def load_testplan(self):
         
-        self.tesplan_load=False
+        
         options = QFileDialog.Options()
         #notepad_text = self.texto.toPlainText()
         options |= QFileDialog.DontUseNativeDialog
@@ -200,10 +198,16 @@ class GuiMain(QDialog):
          self.capture.set_zoom(self.zoom_slide.value())
 
 
-    def save_camera_config(self):
+    def save_camera_cfg(self):
         print("OIIIIIIIIIIIIIIII")
         #name = QFileDialog.getSaveFileName(self, 'Save File')
         #print(str(name))
+
+        options = QFileDialog.Options()
+        #notepad_text = self.texto.toPlainText()
+        options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
+        
 
     def set_exposure(self):
         
