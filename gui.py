@@ -207,7 +207,7 @@ class GuiMain(QDialog):
         print(str(name))
 
         if name:      
-             xml_str="""<config>
+            xml_str="""<config>
                         <camera>
                         <zoom>""" + str(self.zoom_slide.value()) + """</zoom>
                         <exposure>""" + str(self.exposure_slide.value()) + """</exposure>
@@ -226,6 +226,8 @@ class GuiMain(QDialog):
             file = open(str(name[0]) + '.xml', 'w')
             file.write(xml_str)
             file.close()
+
+
 
         #tree.write(name)
 
