@@ -78,7 +78,7 @@ class GuiMain(QDialog):
             self.load_config()
             self.tesplan_load=True
             #QMessageBox.about(self, "Title", "Tes")
-            self.label_2.setText(str(fileName))
+            self.label_2.setText(str(self.testplan.produto))
          
 
     def load_config(self):
