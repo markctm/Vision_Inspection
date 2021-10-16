@@ -206,8 +206,30 @@ class GuiMain(QDialog):
         name = QFileDialog.getSaveFileName(self, 'Save File',str(self.testplan.produto) ," XML File (*.xml)")
         print(str(name))
 
-        tree = ET.parse(str(name[0]) + ".xml")
+
+        xml_str="""<config>
+                <camera>
+                    <zoom>""" + str(self.zoom_slide.value()) + """</zoom>
+                    <exposure>""" + str(self.exposure_slide.value()) + """</exposure>
+                    <focus>"""+  str(self.focus_slide.value()) + """</focus>
+                </camera>
+                <mes>
+                    <Customer>"""+  str(self.customer) +"""</Customer>
+                    <Division>""" + str(self.customer) + """</Division>
+                    <AssemblyNumber>""" + str(self.assembly_nummber) + """</AssemblyNumber>
+                    <TesterName>""" + str(self.tester_name)+ """</TesterName>
+                    <ProcessStep>"""+ str(self.process_step) + """</ProcessStep>
+                    
+                </mes> 
+                </config>
+                """
+
+        save_xml = ET.fromstring(xml_str)
+        tree = ET.parse(save_xml)
         root = tree.getroot()
+        tree.write(name)
+        
+        """
 
         for x in root.iter('zoom'):
             x.text=str(self.zoom_slide.value())
@@ -232,7 +254,7 @@ class GuiMain(QDialog):
                        
         for x in root.iter('ProcessStep'):
             x.text=str(self.process_step)
-     
+     """
         tree.write(name)
 
 
