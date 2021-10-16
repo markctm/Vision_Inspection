@@ -261,7 +261,7 @@ class GuiMain(QDialog):
         for x in root.iter('ProcessStep'):
             x.text=str(self.process_step)
      """
-        tree.write(name)
+        #tree.write(name)
 
 
 if __name__ == '__main__':
