@@ -131,12 +131,10 @@ class GuiMain(QDialog):
             #self.Test=False
         else:
             QMessageBox.about(self, "Message", "No Testplan Loaded. Please select tesplan")
-
          
     def start_webcam(self):
        
         self.image_label2.setText("Nenhum Teste Realizado")
-
         self.set_focus()
         self.set_zoom()
         self.set_exposure()
