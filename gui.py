@@ -200,14 +200,9 @@ class GuiMain(QDialog):
 
     def save_camera_cfg(self):
         print("OIIIIIIIIIIIIIIII")
-        #name = QFileDialog.getSaveFileName(self, 'Save File')
-        #print(str(name))
-
-        options = QFileDialog.Options()
-        #notepad_text = self.texto.toPlainText()
-        options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
-        
+        name = QFileDialog.getSaveFileName(self, 'Save File')
+        print(str(name))
+ 
 
     def set_exposure(self):
         
