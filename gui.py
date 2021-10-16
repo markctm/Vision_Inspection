@@ -114,7 +114,7 @@ class GuiMain(QDialog):
             self.label_process_step.setText(str(self.process_step))
         
         except:
-            QMessageBox.about(self, "Message", "Erro wwhile loading cconfig flle")
+            QMessageBox.about(self, "Message", "Erro while loading config flle")
 
 
     def track_webcam(self, status):
