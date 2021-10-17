@@ -115,7 +115,7 @@ class GuiMain(QDialog):
             QMessageBox.about(self, "Message", "Erro while loading config flle")
 
 
-    def track_webcam(self, status):
+    def track_webcam(self):
         
         if self.tesplan_load==True:
 
