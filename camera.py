@@ -95,9 +95,11 @@ class Camera():
         os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=focus_auto=' + str(focus_auto))
 
     def set_exposure_auto(self,exposure_auto):
+        
         os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=exposure_auto=' + str(exposure_auto))
     
     def set_exposure(self,exposure):
+        os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=exposure_auto=1')
         os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=exposure_absolute='+ str(exposure)) 
     
     def save_frame(self,name):
