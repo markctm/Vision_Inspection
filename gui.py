@@ -48,6 +48,7 @@ class GuiMain(QDialog):
       
         #MES
         self.customer=""
+        self.Serial_Number=""
         self.division=""
         self.assembly_nummber=""
         self.tester_name=""
@@ -115,16 +116,12 @@ class GuiMain(QDialog):
             QMessageBox.about(self, "Message", "Erro while loading config flle")
 
 
-    def track_webcam(self):
-        
-        if self.tesplan_load==True:
+    def track_webcam(self):  
+             
+        self.Serial_Number= self.lineEdit_serial.text()  
+        self.lineEdit_serial.clear() 
 
-            #preprocess.segmentation(self.image)
-            #self.imageTest, frame2, Result = self.preprocess.custom_processing(self.imReference,self.image)
-            
-            #self.displayImage(self.image,1)  
-            #self.stop_webcam()
-            #if(Result==True):
+        if self.tesplan_load==True:
                             
             self.testplan.executa_teste(self.image)     
             self.displayImage(self.image,2)
