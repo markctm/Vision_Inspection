@@ -42,7 +42,6 @@ class GuiMain(QDialog):
         #self.preprocess=Preprocess(produto='solo',posto=1)
         #self.imReference=self.testplan.get_imgRef()
       
-
         #MES
         self.customer=""
         self.division=""
@@ -51,11 +50,7 @@ class GuiMain(QDialog):
         self.process_step=""
             
         self.capture=Camera(1280,1080,dispositivo=1,camera_type='WEBCAM')
-        #self.capture.set_focus(120)
-        #self.capture.set_exposure(20)
-        self.capture.set_exposure_auto(0)
-        #self.capture.set_zoom(500)
-        
+        self.capture.set_exposure_auto(3)    
         
     def load_testplan(self):
         
