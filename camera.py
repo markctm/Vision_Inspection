@@ -47,8 +47,8 @@ class Camera():
         
         os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=focus_auto=0')
         os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=focus_absolute=30')
-        os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=exposure_auto=0')
-        os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=exposure_absolute=30')
+        os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=exposure_auto=1')
+        os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=exposure_time_absolute=30')
 
     def init_config_camera_picamera(self):
         pass
@@ -93,8 +93,7 @@ class Camera():
             
    
             pass
-             
-        
+              
     def set_focus_auto(self,focus_auto):
         os.system('sudo v4l2-ctl -d /dev/video'+ str(self.__dispositivo)+' --set-ctrl=focus_auto=' + str(focus_auto))
 
