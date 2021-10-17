@@ -428,6 +428,9 @@
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="save_button">
    <property name="geometry">
