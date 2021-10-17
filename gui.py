@@ -26,6 +26,9 @@ class GuiMain(QDialog):
         self.Test=False
         self.imageTest=None
         self.tesplan_load=False
+        self.sw_version="Inline_Inspection_v0.0.1"
+        self.sw_version_label.setText(self.sw_version)
+
         self.start_button.clicked.connect(self.start_webcam)
         self.stop_button.clicked.connect(self.stop_webcam)
         self.load_button.clicked.connect(self.load_testplan)
@@ -35,7 +38,7 @@ class GuiMain(QDialog):
         self.focus_slide.valueChanged.connect(self.set_focus)
         self.exposure_slide.valueChanged.connect(self.set_exposure)
         self.zoom_slide.valueChanged.connect(self.set_zoom)
-
+        
         #Teste
         self.track_enabled = False
         #self.testplan=Testplan(produto='solo',posto=1)

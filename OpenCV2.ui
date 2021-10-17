@@ -442,6 +442,19 @@
     <string>Save</string>
    </property>
   </widget>
+  <widget class="QLabel" name="sw_version_label">
+   <property name="geometry">
+    <rect>
+     <x>1170</x>
+     <y>840</y>
+     <width>211</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>test_button</zorder>
   <zorder>load_button</zorder>
   <zorder>image_label2</zorder>
@@ -452,6 +465,7 @@
   <zorder>label_2</zorder>
   <zorder>textEdit</zorder>
   <zorder>save_button</zorder>
+  <zorder>sw_version_label</zorder>
  </widget>
  <resources/>
  <connections/>
