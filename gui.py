@@ -38,6 +38,7 @@ class GuiMain(QDialog):
         self.focus_slide.valueChanged.connect(self.set_focus)
         self.exposure_slide.valueChanged.connect(self.set_exposure)
         self.zoom_slide.valueChanged.connect(self.set_zoom)
+        self.lineEdit_serial.returnPressed.connect(self.track_webcam)
         
         #Teste
         self.track_enabled = False
