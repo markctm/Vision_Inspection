@@ -50,7 +50,7 @@ class GuiMain(QDialog):
         self.process_step=""
             
         self.capture=Camera(1280,1080,dispositivo=1,camera_type='WEBCAM')
-        self.capture.set_exposure_auto(3)    
+        
         
     def load_testplan(self):
         
