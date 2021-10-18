@@ -2,8 +2,6 @@
 import requests
 import xml.etree.ElementTree as ET 
 
-
-
 def Check_Ok_test(url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterName,ProcessStep):
 
    url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
@@ -29,37 +27,35 @@ def Check_Ok_test(url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterNa
       </soapenv:Body>
    </soapenv:Envelope>"""
 
-   response = requests.post(url,data=body,headers=headers) 
-   #print(str(response.content))
+   try:
+      response = requests.post(url,data=body,headers=headers) 
+      #print(str(response.content))
 
-  
-   responseXml = ET.fromstring(response.text)
-   print(str(responseXml))
+            # define namespace mappings to use as shorthand below
+      namespaces = {
+         'soap': 'http://schemas.xmlsoap.org/soap/envelope/',
+         'a': 'http://jabil.com/GMS/MES_TIS',
+      }
 
-   TESTE = responseXml.find('.//{http://jabil.com/GMS/MES_TIS}OKToTestResult')
-   #TESTE = responseXml.find('.//{http://schemas.xmlsoap.org/soap/envelope/}OKToTestResult')
+      dom = ET.fromstring(response.content)     
+      
+      names = dom.findall(
+         './soap:Body'
+         '/a:OKToTestResponse'
+         '/a:OKToTestResult',
+         namespaces,
+      )
+      for name in names:
+         return str(name.text)
+
+   except OSError as e:
+      print("Erro de conexão com TIS")
+      return str("ERROR - Conection Error")
+
+def Send_test_result(Serial_Number,Customer_Name,Operator,Tester_Name,Tester_Process,ResultMes):
+
+   test_data="S"+str(Serial_Number) + "\r" +"C"+str(Customer_Name) + "\r" + "F" + str(Operator) + "\r" + "N" + str(Tester_Name)+"\r" + "P" + str(Tester_Process) + "\r" +"T" + str(ResultMes) + "\r"
    
-   print(str(TESTE))
-   print(str(TESTE.attrib['text']))
-   #testId = responseXml.find('OKToTestResponse').find('OKToTestResult')
-   #('.//{http://tempuri.org/wsSalesQuotation/Service1}LoginResult')
-   #print(str(testId))
-   
-   #print(str(testId.text))
-
-   
-   #tree = ET.parse(response.content)
-   #root = tree.getroot()
-
-   
-   #print("TEST")
-   #print(str(response.content))
-
-
-
-
-def send_test_result(test_data):
-
    url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
    headers = {'content-type': 'text/xml'}
    body = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://jabil.com/GMS/MES_TIS">
@@ -67,18 +63,42 @@ def send_test_result(test_data):
       <soapenv:Body>
          <mes:ProcessTestData>
             <!--Optional:-->
-            <mes:TestData>?</mes:TestData>
+            <mes:TestData>""" + str(test_data) + """</mes:TestData>
             <!--Optional:-->
-            <mes:DataFormat>?</mes:DataFormat>
+            <mes:DataFormat>Generic</mes:DataFormat>
          </mes:ProcessTestData>
       </soapenv:Body>
    </soapenv:Envelope>"""
 
-   response = requests.post(url,data=body,headers=headers)
-   print("TEST")
-   print(str(response.content))
+   try:
+      response = requests.post(url,data=body,headers=headers)
+
+      namespaces = {
+         'soap': 'http://schemas.xmlsoap.org/soap/envelope/',
+         'a': 'http://jabil.com/GMS/MES_TIS',
+      }
+
+      dom = ET.fromstring(response.content)     
+      
+      names = dom.findall(
+         './soap:Body'
+         '/a:ProcessTestDataResponse'
+         '/a:ProcessTestDataResult',
+         namespaces,
+      )
+
+      for name in names:
+         return str(name.text)  
+
+   except OSError as e:
+
+      print("Erro de conexão com TIS")
+      return str("ERROR - Conection Error")
 
 
+res = Check_Ok_test("http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL","INGENICO","INGENICO", "SS52620702244","296171030CARGA","BRBELTE010","Bateria")
+print(res)
 
+res =Send_test_result(Serial_Number="SS52620702244",Customer_Name="INGENICO",Operator="NO_OPERATOR",Tester_Name="BRBELCB001",Tester_Process="BATERIA",ResultMes="P" )
+print(res)
 
-Check_Ok_test("http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL","INGENICO","INGENICO", "81361278","2962203895ACCARGA","BRBELTE010","Bateria")

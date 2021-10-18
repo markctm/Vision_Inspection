@@ -117,7 +117,7 @@ class GuiMain(QDialog):
 
 
     def track_webcam(self):  
-             
+
         self.Serial_Number= self.lineEdit_serial.text()  
         self.lineEdit_serial.clear() 
 
@@ -139,17 +139,14 @@ class GuiMain(QDialog):
         
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_frame)
-        self.timer.start(5)
-
-        
+        self.timer.start(5)   
     
     def take_picture(self):
        
         ret, image_pic = self.capture.camera_read()
         self.displayImage(image_pic,2)    
         name = QFileDialog.getSaveFileName(self, 'Save File',"picture" ," Image File (*.jpg)")
-        self.capture.save_frame(str(name[0]) + '.jpg')
-        
+        self.capture.save_frame(str(name[0]) + '.jpg')  
     
     def update_frame(self):
         ret, self.image = self.capture.camera_read()
@@ -224,14 +221,10 @@ class GuiMain(QDialog):
             file.write(xml_str)
             file.close()
 
-
-
         #tree.write(name)
 
-
 if __name__ == '__main__':
-
-    
+  
     app = QApplication(sys.argv)
     window = GuiMain()
     window.setWindowTitle('Inline Inspection')
