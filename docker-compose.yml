@@ -18,6 +18,7 @@ services:
       - "/dev/vcsm:/dev/vcsm"
       - "/dev/mem:/dev:mem"
       - "/dev/video0:/dev/video0"
+      - "/dev/video1:/dev/video1"
     environment:
       - DISPLAY=$DISPLAY
     privileged: true
