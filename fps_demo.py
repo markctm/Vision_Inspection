@@ -12,10 +12,8 @@ ap.add_argument("-n", "--num-frames", type=int, default=100,help="# of frames to
 ap.add_argument("-d", "--display", type=int, default=-1,help="Whether or not frames should be displayed")
 args = vars(ap.parse_args())
 
-
-
-
 # grab a pointer to the video stream and initialize the FPS counter
+
 print("[INFO] sampling THREADED frames from webcam...")
 vs = WebcamVideoStream(src=0).start()
 fps = FPS().start()

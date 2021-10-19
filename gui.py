@@ -17,6 +17,7 @@ from testplan import *
 from preprocessing import Preprocess
 import xml.etree.ElementTree as ET
 import os 
+from mes import *
 
 class GuiMain(QDialog):
     def __init__(self):
@@ -53,7 +54,9 @@ class GuiMain(QDialog):
         self.assembly_nummber=""
         self.tester_name=""
         self.process_step=""
+        self.operator_name=""
             
+        
         self.capture=Camera(1280,1080,dispositivo=1,camera_type='WEBCAM')
         
         
@@ -123,10 +126,16 @@ class GuiMain(QDialog):
 
         if self.tesplan_load==True:
                             
-            self.testplan.executa_teste(self.image)     
-            self.displayImage(self.image,2)
-                
-            #self.Test=False
+            set_data_to_test(self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
+            res=check_ok_test():
+
+            if(res=="PASS"):
+                self.testplan.executa_teste(self.image)     
+                self.displayImage(self.image,2)
+            else:
+                cv2.putText(self.image, "ERROR - PROCESS VERIFICATION", (50, 400), cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,255), 3, cv2.LINE_AA)
+                self.displayImage(self.image,2)
+
         else:
             QMessageBox.about(self, "Message", "No Testplan Loaded. Please select tesplan")
          

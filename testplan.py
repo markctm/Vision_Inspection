@@ -2,8 +2,9 @@ from teste_estados import Teste
 import numpy as np
 import cv2
 
+
 class Testplan():
-  
+
   def __init__(self,nome_tesplan=''): 
 
     self.posto=nome_tesplan.split('/')[-1].split('_')[1]

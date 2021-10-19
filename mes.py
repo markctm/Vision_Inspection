@@ -1,9 +1,48 @@
-
 import requests
 import xml.etree.ElementTree as ET 
 
-def Check_Ok_test(url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterName,ProcessStep):
+url= ""
+CustomerName = ""
+Division = ""
+SerialNumber = ""
+AssemblyNumber= ""
+TesterName= ""
+ProcessStep= ""
+Operator=""
 
+def set_data_to_test(set_url,set_CustomerName,set_Division,set_serial_number,set_AssemblyNumber,set_TesterName,set_Operator,set_ProcessStep):
+
+   global url
+   global CustomerName
+   global Division
+   global SerialNumber
+   global AssemblyNumber
+   global TesterName
+   global ProcessStep
+   global Operator
+
+   url=set_url
+   CustomerName=set_CustomerName
+   SerialNumber=set_serial_number
+   Division=set_Division
+   AssemblyNumber=set_AssemblyNumber
+   TesterName=set_TesterName
+   ProcessStep=set_ProcessStep
+   Operator=set_Operator
+
+
+
+def check_ok_test():
+
+   global url
+   global CustomerName
+   global Division
+   global SerialNumber
+   global AssemblyNumber
+   global TesterName
+   global ProcessStep
+   global Operator
+ 
    url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
    #headers = {'content-type': 'application/soap+xml'}
    headers = {'content-type': 'text/xml'}
@@ -52,9 +91,19 @@ def Check_Ok_test(url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterNa
       print("Erro de conexão com TIS")
       return str("ERROR - Conection Error")
 
-def Send_test_result(Serial_Number,Customer_Name,Operator,Tester_Name,Tester_Process,ResultMes):
+def send_test_result(ResultMes):
 
-   test_data="S"+str(Serial_Number) + "\r" +"C"+str(Customer_Name) + "\r" + "F" + str(Operator) + "\r" + "N" + str(Tester_Name)+"\r" + "P" + str(Tester_Process) + "\r" +"T" + str(ResultMes) + "\r"
+   global url
+   global CustomerName
+   global Division
+   global SerialNumber
+   global AssemblyNumber
+   global TesterName
+   global ProcessStep
+   global Operator
+   
+   
+   test_data="S"+str(SerialNumber) + "\r" +"C"+str(CustomerName) + "\r" + "F" + str(Operator) + "\r" + "N" + str(TesterName)+"\r" + "P" + str(ProcessStep) + "\r" +"T" + str(ResultMes) + "\r"
    
    url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
    headers = {'content-type': 'text/xml'}
@@ -95,10 +144,10 @@ def Send_test_result(Serial_Number,Customer_Name,Operator,Tester_Name,Tester_Pro
       print("Erro de conexão com TIS")
       return str("ERROR - Conection Error")
 
-
+'''
 res = Check_Ok_test("http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL","INGENICO","INGENICO", "SS52620702244","296171030CARGA","BRBELTE010","Bateria")
 print(res)
 
 res =Send_test_result(Serial_Number="SS52620702244",Customer_Name="INGENICO",Operator="NO_OPERATOR",Tester_Name="BRBELCB001",Tester_Process="BATERIA",ResultMes="P" )
 print(res)
-
+'''
