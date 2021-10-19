@@ -16,7 +16,12 @@ ADD requirements.txt ./requirements.txt
 RUN  python3 -m pip install  --upgrade pip
 RUN  python3 -m pip install  -r requirements.txt 
 
-RUN chmod +x /home/pi/Desktop/vision_inspection/code/gui.py
-RUN chmod +x /home/pi/Desktop/vision_inspection/code/app.sh
+WORKDIR /appsrc
+COPY ./* /appsrc
+RUN ls /appsrc
 
-ENV START_UP = "/home/pi/Desktop/vision_inspection/code/app.sh"
+
+RUN chmod +x /appsrc/gui.py
+RUN chmod +x /appsrc/app.sh
+
+ENV START_UP = "/appsrc/app.sh"
