@@ -15,6 +15,7 @@ WORKDIR /home/pi/Desktop/vision_inspection/code
 ADD requirements.txt ./requirements.txt
 RUN  python3 -m pip install  --upgrade pip
 RUN  python3 -m pip install  -r requirements.txt 
+RUN  xhost +
 
 WORKDIR /appsrc
 COPY ./* /appsrc/
