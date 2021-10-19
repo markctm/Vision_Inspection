@@ -127,7 +127,7 @@ class GuiMain(QDialog):
         if self.tesplan_load==True:
                             
             set_data_to_test(self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
-            res=check_ok_test():
+            res=check_ok_test()
 
             if(res=="PASS"):
                 self.testplan.executa_teste(self.image)     

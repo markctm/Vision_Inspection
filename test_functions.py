@@ -1,11 +1,11 @@
 import numpy as np
 import cv2 
 from preprocessing import Preprocess
-
+from mes import *
 
 
 class Test():
-    
+ 
     def Test_Version(self,a=None,b=None):
         version='0.0.1'
         print(str(version))
@@ -165,10 +165,11 @@ class Test():
         
         if(score>int(tresh)):
             cv2.putText(img1, "PASS - LABEL DETECTED", (50, 400), fonte, 3, (0,255,0), 3, cv2.LINE_AA)
-            
+            send_test_result("P")    
+        
         else:
             cv2.putText(img1, "FAIL- NO LABEL", (50, 400), fonte, 3, (0,0,255), 3, cv2.LINE_AA)
-        
+            send_test_result("F")    
         cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
         return score
   
