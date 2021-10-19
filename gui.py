@@ -55,6 +55,7 @@ class GuiMain(QDialog):
         self.tester_name=""
         self.process_step=""
         self.operator_name=""
+        self.TIS_url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
             
         
         self.capture=Camera(1280,1080,dispositivo=1,camera_type='WEBCAM')
@@ -125,8 +126,8 @@ class GuiMain(QDialog):
         self.lineEdit_serial.clear() 
 
         if self.tesplan_load==True:
-                            
-            set_data_to_test(self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
+                                
+            set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
             res=check_ok_test()
 
             if(res=="PASS"):
