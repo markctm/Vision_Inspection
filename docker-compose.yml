@@ -22,4 +22,5 @@ services:
     environment:
       - DISPLAY=$DISPLAY
     privileged: true
-    #command: python3 /home/pi/Desktop/vision_inspection/code/gui.py 
+    command: python3 /home/pi/Desktop/vision_inspection/code/gui.py 
+    
