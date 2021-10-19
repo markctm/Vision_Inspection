@@ -31,7 +31,6 @@ def set_data_to_test(set_url,set_CustomerName,set_Division,set_serial_number,set
    Operator=set_Operator
 
 
-
 def check_ok_test():
 
    global url

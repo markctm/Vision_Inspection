@@ -2,7 +2,6 @@ from teste_estados import Teste
 import numpy as np
 import cv2
 
-
 class Testplan():
 
   def __init__(self,nome_tesplan=''): 
@@ -16,7 +15,7 @@ class Testplan():
     self.imgRef=0
     self.__carrega_testplan()
     
-
+    
   def verifica_testplan(self):
     ''' Verifica a existência do testplan'''
     
