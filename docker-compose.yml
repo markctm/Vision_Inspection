@@ -9,7 +9,7 @@ services:
     #command: /bin/bash
     stdin_open: true
     tty: true
-    restart: always
+    #restart: always
     command: python3 /appsrc/gui.py 
     volumes:
       - /home/pi/Desktop/vision_inspection/code:/home/pi/Desktop/vision_inspection/code
