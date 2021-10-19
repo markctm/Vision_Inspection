@@ -5,7 +5,8 @@ services:
       dockerfile: DockerFile
       context: . 
     container_name: Vision_Inspection
-    #command: /bin/bash
+    command: /bin/bash
+    command:  cd ..
     command:  python3 gui.py 
     stdin_open: true
     tty: true
