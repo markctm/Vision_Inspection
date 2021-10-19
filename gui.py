@@ -9,8 +9,8 @@ from camera import Camera
 import sys
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QTimer
-from PyQt5.QtWidgets import QApplication, QDialog,QFileDialog,QSlider,QMessageBox
-from PyQt5.uic import loadUi
+from PyQt5.QtWidgets import QApplication, QDialog,QFileDialog,QSlider,QMessageBox,QCheckBox
+,rom PyQt5.uic import loadUi
 import cv2
 import numpy as np
 from testplan import *
@@ -40,7 +40,7 @@ class GuiMain(QDialog):
         self.exposure_slide.valueChanged.connect(self.set_exposure)
         self.zoom_slide.valueChanged.connect(self.set_zoom)
         self.lineEdit_serial.returnPressed.connect(self.track_webcam)
-        
+        self.checkBox_calibration_mode.isChecked()
         #Teste
         self.track_enabled = False
         #self.testplan=Testplan(produto='solo',posto=1)
@@ -126,11 +126,11 @@ class GuiMain(QDialog):
         self.lineEdit_serial.clear() 
 
         if self.tesplan_load==True:
-                                
+
             set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
             res=check_ok_test()
 
-            if(res=="PASS"):
+            if(res=="PASS") or (self.checkBox_calibration_mode.isChecked()):
                 self.testplan.executa_teste(self.image)     
                 self.displayImage(self.image,2)
             else:

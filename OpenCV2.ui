@@ -365,7 +365,7 @@
     <attribute name="title">
      <string>Others</string>
     </attribute>
-    <widget class="QCheckBox" name="checkBox">
+    <widget class="QCheckBox" name="checkBox_calibration_mode">
      <property name="geometry">
       <rect>
        <x>20</x>
