@@ -10,7 +10,7 @@ import sys
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QTimer
 from PyQt5.QtWidgets import QApplication, QDialog,QFileDialog,QSlider,QMessageBox,QCheckBox
-,rom PyQt5.uic import loadUi
+from PyQt5.uic import loadUi
 import cv2
 import numpy as np
 from testplan import *
