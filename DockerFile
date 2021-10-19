@@ -18,7 +18,7 @@ RUN  python3 -m pip install  -r requirements.txt
 
 WORKDIR /appsrc
 COPY ./* /appsrc/
-RUN ls /appsrc
+# RUN ls /appsrc
 
 
 RUN chmod +x /appsrc/gui.py

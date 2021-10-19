@@ -241,5 +241,5 @@ if __name__ == '__main__':
     window = GuiMain()
     window.setWindowTitle('Inline Inspection')
     
-    window.show()
+    window.showFullScreen()
     sys.exit(app.exec_())
