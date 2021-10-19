@@ -10,7 +10,7 @@ services:
     stdin_open: true
     tty: true
     restart: always
-    command: xhost +;python3 /appsrc/gui.py 
+    command: python3 /appsrc/gui.py 
     volumes:
       - /home/pi/Desktop/vision_inspection/code:/home/pi/Desktop/vision_inspection/code
       - /home/pi/.Xauthority:/home/pi/.Xauthority:rw
