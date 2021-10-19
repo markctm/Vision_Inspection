@@ -5,6 +5,7 @@ services:
       dockerfile: DockerFile
       context: . 
     container_name: Vision_Inspection
+    #command: sudo xhost +
     #command: /bin/bash
     stdin_open: true
     tty: true
