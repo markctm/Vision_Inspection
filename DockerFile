@@ -12,6 +12,7 @@ RUN apt-get install -y python3-pyqt5.qtquick python3-pyside2.qtquick python3-pys
 
 WORKDIR /home/pi/Desktop/vision_inspection/code
 
+
 ADD requirements.txt ./requirements.txt
 RUN  python3 -m pip install  --upgrade pip
 RUN  python3 -m pip install  -r requirements.txt 
