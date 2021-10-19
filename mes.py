@@ -66,6 +66,7 @@ def check_ok_test():
       </soapenv:Body>
    </soapenv:Envelope>"""
 
+   print(body)
    try:
       response = requests.post(url,data=body,headers=headers) 
       #print(str(response.content))
