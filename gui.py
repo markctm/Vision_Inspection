@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 """
 Created on Tue Dec  4 01:41:32 2018
 
 @author: trio_pu
 """
+
 from camera import Camera 
 import sys
 from PyQt5.QtGui import QImage, QPixmap
@@ -58,7 +60,7 @@ class GuiMain(QDialog):
         self.TIS_url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
             
         
-        self.capture=Camera(1280,1080,dispositivo=1,camera_type='WEBCAM')
+        self.capture=Camera(1280,1080,dispositivo=0,camera_type='WEBCAM')
         
         
     def load_testplan(self):
