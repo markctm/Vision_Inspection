@@ -6,7 +6,7 @@ services:
       context: . 
     container_name: Vision_Inspection
     command: /bin/bash
-    #command: cd .. ; python3 gui.py 
+    command: python3 /home/pi/Desktop/vision_inspection/code/gui.py 
     stdin_open: true
     tty: true
     #command: python3 ./video_converter.py 
