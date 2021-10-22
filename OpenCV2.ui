@@ -5,6 +5,9 @@
   <property name="windowModality">
    <enum>Qt::WindowModal</enum>
   </property>
+  <property name="enabled">
+   <bool>false</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -20,6 +23,12 @@
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
   </property>
   <widget class="QLabel" name="image_label1">
    <property name="geometry">
