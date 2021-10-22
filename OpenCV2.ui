@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>906</width>
-    <height>790</height>
+    <height>749</height>
    </rect>
   </property>
   <property name="font">
@@ -34,9 +34,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>150</y>
-     <width>371</width>
-     <height>331</height>
+     <y>140</y>
+     <width>381</width>
+     <height>341</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -49,10 +49,10 @@
   <widget class="QLabel" name="image_label2">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>150</y>
-     <width>371</width>
-     <height>331</height>
+     <x>450</x>
+     <y>140</y>
+     <width>381</width>
+     <height>341</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -65,7 +65,7 @@
   <widget class="QPushButton" name="test_button">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>420</x>
      <y>40</y>
      <width>89</width>
      <height>25</height>
@@ -78,7 +78,7 @@
   <widget class="QPushButton" name="load_button">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>420</x>
      <y>80</y>
      <width>89</width>
      <height>25</height>
@@ -426,8 +426,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>40</y>
+     <x>540</x>
+     <y>50</y>
      <width>601</width>
      <height>61</height>
     </rect>
@@ -449,8 +449,8 @@
   <widget class="QPushButton" name="save_button">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>740</y>
+     <x>720</x>
+     <y>690</y>
      <width>89</width>
      <height>25</height>
     </rect>
