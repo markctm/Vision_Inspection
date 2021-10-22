@@ -5,12 +5,13 @@ services:
       dockerfile: DockerFile
       context: . 
     container_name: Vision_Inspection
-    command: /bin/bash
+    #command: /bin/bash
     stdin_open: true
     tty: true
     #restart: always
     #als
     #command: python3 /appsrc/gui.py 
+    command: python3 /home/pi/Desktop/vision_inspection/code/gui.py 
     volumes:
       - /home/pi/Desktop/vision_inspection/code:/home/pi/Desktop/vision_inspection/code
       - /home/pi/.Xauthority:/home/pi/.Xauthority:rw
