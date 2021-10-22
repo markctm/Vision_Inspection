@@ -240,6 +240,5 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = GuiMain()
     window.setWindowTitle('Inline Inspection')
-    
-    window.showFullScreen()
+    window.show()
     sys.exit(app.exec_())
