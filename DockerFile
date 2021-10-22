@@ -16,11 +16,11 @@ ADD requirements.txt ./requirements.txt
 RUN  python3 -m pip install  --upgrade pip
 RUN  python3 -m pip install  -r requirements.txt 
 
-WORKDIR /appsrc
-COPY ./ /appsrc/
+#WORKDIR /appsrc
+#COPY ./ /appsrc/
 # RUN ls /appsrc
 
-RUN chmod +x /appsrc/gui.py
-RUN chmod +x /appsrc/app.sh
+#RUN chmod +x /appsrc/gui.py
+#RUN chmod +x /appsrc/app.sh
 
-ENV START_UP = "/appsrc/app.sh"
+#ENV START_UP = "/appsrc/app.sh"
