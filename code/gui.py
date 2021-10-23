@@ -87,8 +87,7 @@ class GuiMain(QDialog):
             self.label_2.setText(str(self.testplan.produto))
 
     def load_config(self,produto):
-        
-        print("./configs/" + str(produto) +'.xml')
+      
         try:
             tree = ET.parse("./configs/" + str(produto) +'.xml')
             root = tree.getroot()
@@ -242,5 +241,6 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = GuiMain()
     window.setWindowTitle(str(window.sw_version))
-    window.showFullScreen()
+    #window.showFullScreen()
+    window.show()
     sys.exit(app.exec_())
