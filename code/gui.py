@@ -159,7 +159,7 @@ class GuiMain(QDialog):
         ret, image_pic = self.capture.camera_read()
         self.displayImage(image_pic,2)    
         name = QFileDialog.getSaveFileName(self, 'Save File',"picture" ," Image File (*.jpg)")
-        self.capture.save_frame(str(name[0]) + '.jpg')  
+        self.capture.save_photo(str(name[0]) + '.jpg', image_pic)  
     
     def update_frame(self):
         ret, self.image = self.capture.camera_read()

@@ -109,3 +109,5 @@ class Camera():
         cv2.imwrite(str(name),frame)
         
 
+    def save_photo(self,name,frame):
+        cv2.imwrite(str(name),frame)
