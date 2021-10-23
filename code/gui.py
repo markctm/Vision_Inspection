@@ -87,6 +87,8 @@ class GuiMain(QDialog):
             self.label_2.setText(str(self.testplan.produto))
 
     def load_config(self,produto):
+        
+        print("'.\config\'" + str(produto) +'.xml')
         try:
             tree = ET.parse("'.\config\'" + str(produto) +'.xml')
             root = tree.getroot()
