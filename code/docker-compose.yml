@@ -22,7 +22,7 @@ services:
       - "/dev/video0:/dev/video0"
       - "/dev/video1:/dev/video1"
     command: python3 /home/pi/Desktop/Vision_Inspection/code/gui.py 
-      environment:
+    environment:
       - DISPLAY=$DISPLAY
     privileged: true
 
