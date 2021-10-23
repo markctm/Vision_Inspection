@@ -10,7 +10,7 @@ RUN apt-get install  libopenjp2-7
 RUN apt-get install -y qt5-default
 RUN apt-get install -y python3-pyqt5.qtquick python3-pyside2.qtquick python3-pyside2.qtquickwidgets qml-module-qtquick-controls2 qml-module-qtquick2
 
-WORKDIR /home/pi/Desktop/Vision_Inspection/code
+WORKDIR /home/pi/Desktop/Vision_Inspection/code/
 
 ADD requirements.txt ./requirements.txt
 RUN  python3 -m pip install  --upgrade pip
