@@ -11,7 +11,7 @@ services:
     #restart: always
     #als
     #command: python3 /appsrc/gui.py 
-    command: python3 /home/pi/Desktop/vision_inspection/code/gui.py 
+    command: python3 /home/pi/Desktop/Vision_Inspection/code/gui.py 
     volumes:
       - /home/pi/Desktop/Vision_Inspection/code:/home/pi/Desktop/Vision_Inspection/code
       - /home/pi/.Xauthority:/home/pi/.Xauthority:rw
