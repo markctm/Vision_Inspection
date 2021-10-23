@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>906</width>
-    <height>749</height>
+    <width>1300</width>
+    <height>913</height>
    </rect>
   </property>
   <property name="font">
@@ -31,9 +31,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>140</y>
-     <width>381</width>
-     <height>341</height>
+     <y>150</y>
+     <width>640</width>
+     <height>480</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -46,10 +46,10 @@
   <widget class="QLabel" name="image_label2">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>140</y>
-     <width>381</width>
-     <height>341</height>
+     <x>710</x>
+     <y>150</y>
+     <width>640</width>
+     <height>480</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -62,8 +62,8 @@
   <widget class="QPushButton" name="test_button">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>40</y>
+     <x>410</x>
+     <y>70</y>
      <width>89</width>
      <height>25</height>
     </rect>
@@ -75,8 +75,8 @@
   <widget class="QPushButton" name="load_button">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>80</y>
+     <x>510</x>
+     <y>70</y>
      <width>89</width>
      <height>25</height>
     </rect>
@@ -92,13 +92,13 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>530</y>
+     <y>710</y>
      <width>661</width>
      <height>181</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="Camera_tab">
     <attribute name="title">
@@ -359,19 +359,6 @@
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="label_process_step">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>100</y>
-       <width>171</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -396,7 +383,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>500</y>
+     <y>680</y>
      <width>101</width>
      <height>16</height>
     </rect>
@@ -426,7 +413,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>670</x>
      <y>50</y>
      <width>601</width>
      <height>61</height>
@@ -450,7 +437,7 @@
    <property name="geometry">
     <rect>
      <x>700</x>
-     <y>690</y>
+     <y>870</y>
      <width>89</width>
      <height>25</height>
     </rect>
@@ -485,6 +472,19 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label_process_step">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>680</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>test_button</zorder>
   <zorder>load_button</zorder>
   <zorder>image_label2</zorder>
@@ -496,6 +496,7 @@
   <zorder>save_button</zorder>
   <zorder>sw_version_label</zorder>
   <zorder>lineEdit_serial</zorder>
+  <zorder>label_process_step</zorder>
  </widget>
  <resources/>
  <connections/>
