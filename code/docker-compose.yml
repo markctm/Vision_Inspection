@@ -13,7 +13,7 @@ services:
     #command: python3 /appsrc/gui.py 
     #command: python3 /home/pi/Desktop/vision_inspection/code/gui.py 
     volumes:
-      - /home/pi/Desktop/vision_inspection/code:/home/pi/Desktop/vision_inspection/code
+      - /home/pi/Desktop/Vision_Inspection/code:/home/pi/Desktop/Vision_Inspection/code
       - /home/pi/.Xauthority:/home/pi/.Xauthority:rw
       - /tmp/.X11-unix:/tmp/.X11-unix
     devices:
