@@ -239,6 +239,6 @@ if __name__ == '__main__':
   
     app = QApplication(sys.argv)
     window = GuiMain()
-    window.setWindowTitle(str(self.sw_version))
+    window.setWindowTitle(str(window.sw_version))
     window.showFullScreen()
     sys.exit(app.exec_())
