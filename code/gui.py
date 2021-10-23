@@ -88,7 +88,7 @@ class GuiMain(QDialog):
 
     def load_config(self,produto):
         try:
-            tree = ET.parse(str(produto) +'.xml')
+            tree = ET.parse("config/" +str(produto) +'.xml')
             root = tree.getroot()
         
             for x in root.findall('camera'):
@@ -239,6 +239,6 @@ if __name__ == '__main__':
   
     app = QApplication(sys.argv)
     window = GuiMain()
-    window.setWindowTitle('Inline Inspection')
-    window.show()
+    window.setWindowTitle(str(self.sw_version))
+    window.showFullScreen()
     sys.exit(app.exec_())
