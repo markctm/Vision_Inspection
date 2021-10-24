@@ -85,7 +85,7 @@ def check_ok_test():
          namespaces,
       )
       for name in names:
-         return str(name.text)
+         return str(name.text).upper().strip()
 
    except OSError as e:
       print("Erro de conexão com TIS")
@@ -137,7 +137,7 @@ def send_test_result(ResultMes):
       )
 
       for name in names:
-         return str(name.text)  
+         return str(name.text).upper().strip()
 
    except OSError as e:
 

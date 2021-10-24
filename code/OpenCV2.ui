@@ -359,6 +359,19 @@
       <string/>
      </property>
     </widget>
+    <widget class="QLabel" name="label_process_step">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>100</y>
+       <width>171</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -472,19 +485,6 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_process_step">
-   <property name="geometry">
-    <rect>
-     <x>880</x>
-     <y>680</y>
-     <width>171</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <zorder>test_button</zorder>
   <zorder>load_button</zorder>
   <zorder>image_label2</zorder>
@@ -496,7 +496,6 @@
   <zorder>save_button</zorder>
   <zorder>sw_version_label</zorder>
   <zorder>lineEdit_serial</zorder>
-  <zorder>label_process_step</zorder>
  </widget>
  <resources/>
  <connections/>
