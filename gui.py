@@ -146,6 +146,7 @@ class GuiMain(QDialog):
                 QMessageBox.about(self, "Message", "No Testplan Loaded. Please select tesplan")
         else:
             QMessageBox.about(self, "Message", "Camera Not Started")
+
     def start_webcam(self):
        
         self.image_label2.setText("Nenhum Teste Realizado")
@@ -168,11 +169,12 @@ class GuiMain(QDialog):
         ret, self.image = self.capture.camera_read()
 
         if self.image is None:
-            QMessageBox.about(self, "Camera       ", "Error Camera !!")
+            QMessageBox.about(self, "Camera       ", "Error Camera!")
             self.camera_ok=False
             self.stop_webcam()
         else:
             self.displayImage(self.image,1)
+            print("oi")
             self.camera_ok=True
      
         
