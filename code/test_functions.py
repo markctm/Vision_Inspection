@@ -163,7 +163,7 @@ class Test():
         
         fonte = cv2.FONT_HERSHEY_SIMPLEX
            
-        url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterName,ProcessStep,ProcessStep,Operator = get_data_to_test()
+        url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterName,ProcessStep,Operator = get_data_to_test()
         print("Teste de Serial:" + str(SerialNumber))        
         
         #RESULT OF TEST 
