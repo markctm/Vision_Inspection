@@ -29,6 +29,7 @@ class GuiMain(QDialog):
         self.Test=False
         self.imageTest=None
         self.tesplan_load=False
+        self.camera_ok=False
         self.sw_version="Inline_Inspection_v0.0.1"
         self.sw_version_label.setText(self.sw_version)
 
@@ -87,9 +88,8 @@ class GuiMain(QDialog):
             self.label_2.setText(str(self.testplan.produto))
 
     def load_config(self,produto):
-      
         try:
-            tree = ET.parse("./configs/" + str(produto) +'.xml')
+            tree = ET.parse(str(produto) +'.xml')
             root = tree.getroot()
         
             for x in root.findall('camera'):
@@ -128,21 +128,26 @@ class GuiMain(QDialog):
         self.Serial_Number= self.lineEdit_serial.text()  
         self.lineEdit_serial.clear() 
 
-        if self.tesplan_load==True:
+        if self.camera_ok==True:
 
-            set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
-            res=check_ok_test()
+            print("ta passando aqui ")
+            if self.tesplan_load==True:
 
-            if(res=="PASS") or (self.checkBox_calibration_mode.isChecked()):
-                self.testplan.executa_teste(self.image)     
-                self.displayImage(self.image,2)
+                set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
+                res=check_ok_test()
+
+                if(res=="PASS") or (self.checkBox_calibration_mode.isChecked()):
+                    self.testplan.executa_teste(self.image)     
+                    self.displayImage(self.image,2)
+                else:
+                    cv2.putText(self.image, "ERROR - PROCESS VERIFICATION", (50, 400), cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,255), 3, cv2.LINE_AA)
+                    self.displayImage(self.image,2)
+
             else:
-                cv2.putText(self.image, "ERROR - PROCESS VERIFICATION", (50, 400), cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,255), 3, cv2.LINE_AA)
-                self.displayImage(self.image,2)
-
+                QMessageBox.about(self, "Message", "No Testplan Loaded. Please select tesplan")
         else:
-            QMessageBox.about(self, "Message", "No Testplan Loaded. Please select tesplan")
-         
+            QMessageBox.about(self, "Message", "Camera Not Started")
+
     def start_webcam(self):
        
         self.image_label2.setText("Nenhum Teste Realizado")
@@ -159,16 +164,19 @@ class GuiMain(QDialog):
         ret, image_pic = self.capture.camera_read()
         self.displayImage(image_pic,2)    
         name = QFileDialog.getSaveFileName(self, 'Save File',"picture" ," Image File (*.jpg)")
-        self.capture.save_photo(str(name[0]) + '.jpg', image_pic)  
+        self.capture.save_frame(str(name[0]) + '.jpg')  
     
     def update_frame(self):
         ret, self.image = self.capture.camera_read()
 
         if self.image is None:
-            QMessageBox.about(self, "Camera       ", "Error Camera !!")
+            QMessageBox.about(self, "Camera       ", "Error Camera!")
+            self.camera_ok=False
             self.stop_webcam()
         else:
             self.displayImage(self.image,1)
+            print("oi")
+            self.camera_ok=True
      
         
     def stop_webcam(self):
@@ -240,7 +248,6 @@ if __name__ == '__main__':
   
     app = QApplication(sys.argv)
     window = GuiMain()
-    window.setWindowTitle(str(window.sw_version))
-    #window.showFullScreen()
+    window.setWindowTitle('Inline Inspection')
     window.show()
     sys.exit(app.exec_())
