@@ -131,7 +131,6 @@ class GuiMain(QDialog):
 
         if self.camera_ok==True:
 
-            print("ta passando aqui ")
             if self.tesplan_load==True:
 
                 set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
