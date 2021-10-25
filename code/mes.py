@@ -43,15 +43,6 @@ def get_data_to_test():
    global ProcessStep
    global Operator
 
-   url=set_url
-   CustomerName=set_CustomerName
-   SerialNumber=set_serial_number
-   Division=set_Division
-   AssemblyNumber=set_AssemblyNumber
-   TesterName=set_TesterName
-   ProcessStep=set_ProcessStep
-   Operator=set_Operator
-
    return str(url),str(CustomerName),str(Division),str(SerialNumber),str(AssemblyNumber),str(TesterName),str(ProcessStep),str(Operator)
 
 

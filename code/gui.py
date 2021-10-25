@@ -134,7 +134,7 @@ class GuiMain(QDialog):
 
             if self.tesplan_load==True:
 
-                #set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
+                set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
                 #res=check_ok_test()
                 res="PASS"
                 if(res=="PASS") or (self.checkBox_calibration_mode.isChecked()):
