@@ -31,6 +31,31 @@ def set_data_to_test(set_url,set_CustomerName,set_Division,set_serial_number,set
    Operator=set_Operator
 
 
+
+def get_data_to_test():
+
+   global url
+   global CustomerName
+   global Division
+   global SerialNumber
+   global AssemblyNumber
+   global TesterName
+   global ProcessStep
+   global Operator
+
+   url=set_url
+   CustomerName=set_CustomerName
+   SerialNumber=set_serial_number
+   Division=set_Division
+   AssemblyNumber=set_AssemblyNumber
+   TesterName=set_TesterName
+   ProcessStep=set_ProcessStep
+   Operator=set_Operator
+
+   return str(url),str(CustomerName),str(Division),str(SerialNumber),str(AssemblyNumber),str(TesterName),str(ProcessStep),str(Operator)
+
+
+
 def check_ok_test():
 
    global url
