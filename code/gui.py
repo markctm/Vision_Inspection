@@ -151,15 +151,18 @@ class GuiMain(QDialog):
 
     def start_webcam(self):
        
-        self.capture=Camera(1280,1080,dispositivo=0,camera_type='WEBCAM')
-        self.image_label2.setText("Nenhum Teste Realizado")
-        self.set_focus()
-        self.set_zoom()
-        self.set_exposure()
-        
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.update_frame)
-        self.timer.start(5)   
+        try:
+            self.capture=Camera(1280,1080,dispositivo=0,camera_type='WEBCAM')
+            self.image_label2.setText("Nenhum Teste Realizado")
+            self.set_focus()
+            self.set_zoom()
+            self.set_exposure()
+            
+            self.timer = QTimer(self)
+            self.timer.timeout.connect(self.update_frame)
+            self.timer.start(5)
+        except:
+             QMessageBox.about(self, "Message", "Camera Not Started")
     
     def take_picture(self):
        
@@ -177,7 +180,6 @@ class GuiMain(QDialog):
             self.stop_webcam()
         else:
             self.displayImage(self.image,1)
-            print("oi")
             self.camera_ok=True
      
         
