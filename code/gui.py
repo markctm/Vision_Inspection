@@ -151,6 +151,7 @@ class GuiMain(QDialog):
 
     def start_webcam(self):
        
+        self.capture=Camera(1280,1080,dispositivo=0,camera_type='WEBCAM')
         self.image_label2.setText("Nenhum Teste Realizado")
         self.set_focus()
         self.set_zoom()
