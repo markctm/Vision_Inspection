@@ -136,7 +136,7 @@ class GuiMain(QDialog):
 
                 #set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
                 #res=check_ok_test()
-
+                res=None
                 if(res=="PASS") or (self.checkBox_calibration_mode.isChecked()):
                     self.testplan.executa_teste(self.image)     
                     self.displayImage(self.image,2)
