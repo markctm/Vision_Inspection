@@ -61,7 +61,7 @@ class GuiMain(QDialog):
         self.TIS_url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
             
         
-        self.capture=Camera(1280,1080,dispositivo=0,camera_type='WEBCAM')
+        #self.capture=Camera(1280,1080,dispositivo=0,camera_type='WEBCAM')
         
         
     def load_testplan(self):
