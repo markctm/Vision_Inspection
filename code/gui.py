@@ -89,7 +89,7 @@ class GuiMain(QDialog):
 
     def load_config(self,produto):
         
-        ]try:
+        try:
             tree = ET.parse("./configs/" +str(produto) +'.xml')
             root = tree.getroot()
         
