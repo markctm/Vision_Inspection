@@ -165,7 +165,8 @@ class Test():
            
         url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterName,ProcessStep,Operator = get_data_to_test()
         print("Teste de Serial:" + str(SerialNumber))        
-        
+        if SerialNumber=="":
+            SerialNumber=str("No_Serial")
         #RESULT OF TEST 
         if(score>int(tresh)):
             cv2.putText(img1, "PASS - LABEL DETECTED", (50, 400), fonte, 3, (0,255,0), 3, cv2.LINE_AA)           
