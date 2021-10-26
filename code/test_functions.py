@@ -2,6 +2,7 @@ import numpy as np
 import cv2 
 from preprocessing import Preprocess
 from mes import *
+from datetime import datetime
 
 
 class Test():
@@ -166,18 +167,21 @@ class Test():
         url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterName,ProcessStep,Operator = get_data_to_test()
         print("Teste de Serial:" + str(SerialNumber))        
         if SerialNumber=="":
-            SerialNumber=str("No_Serial")
+            now = datetime.now()
+            dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+            SerialNumber=str("No_Serial" + str(dt_string))
+
         #RESULT OF TEST 
         if(score>int(tresh)):
             cv2.putText(img1, "PASS - LABEL DETECTED", (50, 400), fonte, 3, (0,255,0), 3, cv2.LINE_AA)           
             cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
             #send_test_result("P")
-            cv2.imwrite("./logs/" + str(SerialNumber)+ ".jpg",img1)    
+            cv2.imwrite("./logs/" + str(SerialNumber)+ "_pass.jpg",img1)    
         
         else:
             cv2.putText(img1, "FAIL- NO LABEL", (50, 400), fonte, 3, (0,0,255), 3, cv2.LINE_AA)
             cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
-            cv2.imwrite("./logs/" + str(SerialNumber)+ ".jpg",img1)  
+            cv2.imwrite("./logs/" + str(SerialNumber)+ "_fail.jpg",img1)  
             #send_test_result("F")    
         #cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
         

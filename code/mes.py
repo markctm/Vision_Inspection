@@ -46,7 +46,6 @@ def get_data_to_test():
    return str(url),str(CustomerName),str(Division),str(SerialNumber),str(AssemblyNumber),str(TesterName),str(ProcessStep),str(Operator)
 
 
-
 def check_ok_test():
 
    global url
