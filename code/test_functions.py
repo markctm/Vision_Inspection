@@ -170,6 +170,7 @@ class Test():
             now = datetime.now()
             dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
             SerialNumber=str("No_Serial" + str(dt_string))
+            print(SerialNumber)
 
         #RESULT OF TEST 
         if(score>int(tresh)):
