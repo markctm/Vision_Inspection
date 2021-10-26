@@ -151,14 +151,15 @@ class Test():
             
         print("Test_feature_match")  
         
-        process = Preprocess("NA","NA") 
+        process = Preprocess("NA","NA")
+        fonte = cv2.FONT_HERSHEY_SIMPLEX 
         
         try:
             x_detect,y_detect,score=process.feature_match(img1, imgref)
          
             print(str("Score of Feature Match") + str(score))
             
-            fonte = cv2.FONT_HERSHEY_SIMPLEX
+            
             
             url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterName,ProcessStep,Operator = get_data_to_test()
             print("Teste de Serial:" + str(SerialNumber))        
@@ -186,6 +187,7 @@ class Test():
             #cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
         
         except:
+            
             cv2.putText(img1, "ERROR- TEST AGAIN", (50, 400), fonte, 3, (0,0,255), 3, cv2.LINE_AA)
             score=0
             pass  
