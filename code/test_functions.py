@@ -166,9 +166,14 @@ class Test():
            
         url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterName,ProcessStep,Operator = get_data_to_test()
         print("Teste de Serial:" + str(SerialNumber))        
+        
+        now = datetime.now()
+        dt_string = now.strftime("%d_%m_%Y_%H%M%S")
+        SerialNumber=str("No_Serial" + str(dt_string))
+             
         if SerialNumber=="":
             now = datetime.now()
-            dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+            dt_string = now.strftime("%d_%m_%Y_%H%M%S")
             SerialNumber=str("No_Serial" + str(dt_string))
             print(SerialNumber)
 
