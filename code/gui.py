@@ -127,7 +127,8 @@ class GuiMain(QDialog):
 
     def track_webcam(self):  
 
-        self.Serial_Number= self.lineEdit_serial.text()  
+        self.Serial_Number= self.lineEdit_serial.text()
+        self.label_SerialNumber.setText(str(self.Serial_Number))  
         self.lineEdit_serial.clear() 
 
         if self.camera_ok==True:
