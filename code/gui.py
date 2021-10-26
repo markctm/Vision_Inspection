@@ -129,7 +129,6 @@ class GuiMain(QDialog):
 
         self.Serial_Number= self.lineEdit_serial.text()
         self.label_SerialNumber.setText(str(self.Serial_Number))  
-        self.lineEdit_serial.clear()   
 
         img=self.create_blank(1280, 1080, rgb_color=(0, 0, 0))
         self.displayImage(img,2)
