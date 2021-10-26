@@ -129,7 +129,10 @@ class GuiMain(QDialog):
 
         self.Serial_Number= self.lineEdit_serial.text()
         self.label_SerialNumber.setText(str(self.Serial_Number))  
-        self.lineEdit_serial.clear() 
+        self.lineEdit_serial.clear()   
+
+        img=self.create_blank(1280, 1080, rgb_color=(0, 0, 0))
+        self.displayImage(img,2)
 
         if self.camera_ok==True:
 
@@ -248,6 +251,18 @@ class GuiMain(QDialog):
             file.close()
 
         #tree.write(name)
+
+    def create_blank(self,width, height, rgb_color=(0, 0, 0)):
+        """Create new image(numpy array) filled with certain color in RGB"""
+        # Create black blank image
+        image = np.zeros((height, width, 3), np.uint8)
+
+        # Since OpenCV uses BGR, convert the color first
+        color = tuple(reversed(rgb_color))
+        # Fill image with color
+        image[:] = color
+
+        return image
 
 if __name__ == '__main__':
   

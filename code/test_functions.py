@@ -155,8 +155,7 @@ class Test():
         fonte = cv2.FONT_HERSHEY_SIMPLEX 
         
         try:
-            x_detect,y_detect,score=process.feature_match(img1, imgref)
-         
+            x_detect,y_detect,score=process.feature_match(img1, imgref)   
             print(str("Score of Feature Match") + str(score))
             
             
@@ -188,7 +187,8 @@ class Test():
         
         except:
             
-            cv2.putText(img1, "ERROR- TEST AGAIN", (50, 400), fonte, 3, (0,0,255), 3, cv2.LINE_AA)
+            print("except aqui")
+            #cv2.putText(img_test, "ERROR- TEST AGAIN", (50, 400), fonte, 3, (0,0,255), 3, cv2.LINE_AA)
             score=0
             pass  
       
