@@ -125,7 +125,9 @@ class GuiMain(QDialog):
             QMessageBox.about(self, "Message", "Erro while loading config flle")
 
 
-    def track_webcam(self):  
+    def track_webcam(self): 
+
+        print("PRESSED\n") 
 
         self.Serial_Number= self.lineEdit_serial.text()
         self.label_SerialNumber.setText(str(self.Serial_Number))  
