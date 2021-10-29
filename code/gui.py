@@ -129,6 +129,8 @@ class GuiMain(QDialog):
 
        if self.timer2.isActive()==False:
 
+            print(str(self.timer2.isActive()))
+
             self.timer2.setSingleShot(3000)
             self.timer2.start() 
 
