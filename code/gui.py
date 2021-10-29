@@ -60,7 +60,7 @@ class GuiMain(QDialog):
         self.operator_name=""
         self.TIS_url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
             
-        
+        self.timer2 = QTimer(self)
         #self.start_webcam()
         self.capture=Camera(1280,1080,dispositivo=0,camera_type='WEBCAM')
         
@@ -125,35 +125,42 @@ class GuiMain(QDialog):
             QMessageBox.about(self, "Message", "Erro while loading config flle")
 
 
-    def track_webcam(self): 
+    def track_webcam(self):
 
-        print("PRESSED\n") 
+       if self.timer2.isActive()==False:
 
-        self.Serial_Number= self.lineEdit_serial.text()
-        self.label_SerialNumber.setText(str(self.Serial_Number))  
-        self.lineEdit_serial.clear()   
+            self.timer2.setSingleShot(3000)
+            self.timer2.start() 
 
-        img=self.create_blank(1280, 1080, rgb_color=(0, 0, 0))
-        self.displayImage(img,2)
+            print("PRESSED\n") 
 
-        if self.camera_ok==True:
+            self.Serial_Number= self.lineEdit_serial.text()
+            self.label_SerialNumber.setText(str(self.Serial_Number))  
+            self.lineEdit_serial.clear()   
 
-            if self.tesplan_load==True:
+            img=self.create_blank(1280, 1080, rgb_color=(0, 0, 0))
+            self.displayImage(img,2)
 
-                set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
-                #res=check_ok_test()
-                res="PASS"
-                if(res=="PASS") or (self.checkBox_calibration_mode.isChecked()):
-                    self.testplan.executa_teste(self.image)     
-                    self.displayImage(self.image,2)
+            if self.camera_ok==True:
+
+                if self.tesplan_load==True:
+
+                    set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
+                    #res=check_ok_test()
+                    res="PASS"
+                    if(res=="PASS") or (self.checkBox_calibration_mode.isChecked()):
+                        self.testplan.executa_teste(self.image)     
+                        self.displayImage(self.image,2)
+                    else:
+                        cv2.putText(self.image, "ERROR - PROCESS VERIFICATION", (50, 400), cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,255), 3, cv2.LINE_AA)
+                        self.displayImage(self.image,2)
+
                 else:
-                    cv2.putText(self.image, "ERROR - PROCESS VERIFICATION", (50, 400), cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,255), 3, cv2.LINE_AA)
-                    self.displayImage(self.image,2)
-
+                    QMessageBox.about(self, "Message", "No Testplan Loaded. Please select tesplan")
             else:
-                QMessageBox.about(self, "Message", "No Testplan Loaded. Please select tesplan")
-        else:
-            QMessageBox.about(self, "Message", "Camera Not Started")
+                QMessageBox.about(self, "Message", "Camera Not Started")
+
+        
 
     def start_webcam(self):
        
