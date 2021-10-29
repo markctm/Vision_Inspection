@@ -131,7 +131,8 @@ class GuiMain(QDialog):
 
        if self.timer2.isActive()==False:
 
-            self.timer2.singleShot(2000000)
+            self.timer2.setInterval(10000)
+            self.timer2.setSingleShot(True) 
             self.timer2.start() 
 
             print("PRESSED\n") 
