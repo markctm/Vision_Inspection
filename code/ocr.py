@@ -8,11 +8,11 @@ cv2.imshow("Image", image)
 cv2.waitKey(0)
 
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-blurred = cv2.GaussianBlur(gray, (7, 7), 0)
-cv2.imshow("Image", blurred)
+#blurred = cv2.GaussianBlur(gray, (7, 7), 0)
+#cv2.imshow("Image", blurred)
 cv2.waitKey(0)
 
-(T, threshInv) = cv2.threshold(blurred, 230, 255,cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
+(T, threshInv) = cv2.threshold(gray, 230, 255,cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
 cv2.imshow("Simple Thresholding", threshInv)
 cv2.waitKey(0)
 
