@@ -65,8 +65,7 @@ class Test():
         
         '''
         
-        image = cv2.drawContours(imagem_recorte1, contornos, -1, (0, 255, 0), 2)
-        
+        image = cv2.drawContours(imagem_recorte1, contornos, -1, (0, 255, 0), 2)  
         cv2.imshow("componentes conexas",image)
         
         print("Contornos:" + str(contornos))
@@ -79,13 +78,12 @@ class Test():
                     count_pixel= count_pixel + 1
         
         score=count_pixel/(len(change)*len(change[0]))
+        
         '''
         print("score:" + str(score))
-        
-           
+               
         #cv2.imshow("teste",change)
-        
-        
+               
         if(score>0.2):
             cv2.rectangle(img1,(x1,y1),(x2,y2),(0,0,255),2)
         else:
@@ -127,7 +125,6 @@ class Test():
         score=count_pixel/(len(change)*len(change[0]))
         print("score:" + str(score))
         
-
         #cv2.imshow("teste",change)
         
         return score
