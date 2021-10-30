@@ -209,7 +209,7 @@ class Test():
 
         fonte = cv2.FONT_HERSHEY_SIMPLEX 
 
-        if "VERSION3221" in text2:
+        if "3221" in text2:
             print("RESULT PASS" + str(string))
             cv2.putText(img1, "RESULT PASS" + str(string), (50, 400), fonte, 3, (0,255,0), 3, cv2.LINE_AA) 
         else:
