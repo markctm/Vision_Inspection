@@ -131,8 +131,7 @@ class GuiMain(QDialog):
 
        if self.timer2.isActive()==False:
 
-            #DEBOUNCE MOUSE 
-            
+            # DEBOUNCE MOUSE        
             self.timer2.setInterval(1000)
             self.timer2.setSingleShot(True) 
             self.timer2.start() 
