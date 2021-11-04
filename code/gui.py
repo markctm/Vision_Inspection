@@ -144,14 +144,15 @@ class GuiMain(QDialog):
 
             img=self.create_blank(1280, 1080, rgb_color=(0, 0, 0))
             self.displayImage(img,2)
+            #COMMMENT
 
             if self.camera_ok==True:
 
                 if self.tesplan_load==True:
 
                     set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step)
-                    #res=check_ok_test()
-                    res="PASS"
+                    res=check_ok_test()
+                    #res="PASS"
                     if(res=="PASS") or (self.checkBox_calibration_mode.isChecked()):
                         self.testplan.executa_teste(self.image)     
                         self.displayImage(self.image,2)
