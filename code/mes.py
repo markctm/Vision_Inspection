@@ -58,7 +58,7 @@ def check_ok_test():
    global ProcessStep
    global Operator
  
-   url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
+   url="http://172.24.72.186/MES-TIS/TIS.ASMX?WSDL"
    #headers = {'content-type': 'application/soap+xml'}
    headers = {'content-type': 'text/xml'}
    body = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://jabil.com/GMS/MES_TIS">
@@ -189,7 +189,7 @@ def send_test_result_parser(Parser_path,ResultMes):
 
 
 
-res = set_data_to_test("http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL","INGENICO","INGENICO", "SS52620702244","296171030CARGA","BRBELTE010","","Bateria")
+res = set_data_to_test("http://172.24.72.186/MES-TIS/TIS.ASMX?WSDL","INGENICO","INGENICO", "SS52620702244","296171030CARGA","BRBELTE010","","Bateria")
 print(res)
 
 res=check_ok_test()
