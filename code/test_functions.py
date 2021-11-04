@@ -211,11 +211,11 @@ class Test():
 
         if "3221" in text2:
             print("RESULT PASS" + str(string))
-            cv2.putText(img1, "RESULT PASS" + str(string), (50, 400), fonte, 3, (0,255,0), 3, cv2.LINE_AA)
+            cv2.putText(img1, "RESULT PASS" + str(string), (50, 400), fonte, 2, (0,255,0), 3, cv2.LINE_AA)
             send_test_result("P") 
         else:
             print("RESULT FAIL")
-            cv2.putText(img1, "RESULT FAIL"+ str(string), (50, 400), fonte, 3, (0,0,255), 3, cv2.LINE_AA)
+            cv2.putText(img1, "RESULT FAIL"+ str(string), (50, 400), fonte, 2, (0,0,255), 3, cv2.LINE_AA)
             send_test_result("F")
     
     def blank(self,x,y):
