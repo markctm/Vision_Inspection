@@ -160,13 +160,7 @@ def send_test_result(ResultMes):
       print("Erro de conexão com TIS")
       return str("ERROR - Conection Error")
 
-'''
-res = Check_Ok_test("http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL","INGENICO","INGENICO", "SS52620702244","296171030CARGA","BRBELTE010","Bateria")
-print(res)
 
-res =Send_test_result(Serial_Number="SS52620702244",Customer_Name="INGENICO",Operator="NO_OPERATOR",Tester_Name="BRBELCB001",Tester_Process="BATERIA",ResultMes="P" )
-print(res)
-'''
 
 
 def send_test_result_parser(Parser_path,ResultMes):
@@ -193,3 +187,13 @@ def send_test_result_parser(Parser_path,ResultMes):
    file.write(body)
    file.close()
 
+
+
+res = set_data_to_test("http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL","INGENICO","INGENICO", "SS52620702244","296171030CARGA","BRBELTE010","","Bateria")
+print(res)
+
+res=check_ok_test()
+print(res)
+
+#res =Send_test_result(Serial_Number="SS52620702244",Customer_Name="INGENICO",Operator="NO_OPERATOR",Tester_Name="BRBELCB001",Tester_Process="BATERIA",ResultMes="P" )
+#print(res)
