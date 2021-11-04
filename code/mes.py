@@ -1,5 +1,6 @@
 import requests
 import xml.etree.ElementTree as ET 
+import os
 
 url= ""
 CustomerName = ""
@@ -166,3 +167,29 @@ print(res)
 res =Send_test_result(Serial_Number="SS52620702244",Customer_Name="INGENICO",Operator="NO_OPERATOR",Tester_Name="BRBELCB001",Tester_Process="BATERIA",ResultMes="P" )
 print(res)
 '''
+
+
+def send_test_result_parser(Parser_path,ResultMes):
+
+   global url
+   global CustomerName
+   global Division
+   global SerialNumber
+   global AssemblyNumber
+   global TesterName
+   global ProcessStep
+   global Operator
+   
+   
+   body= """S""" + str(SerialNumber) + """\r\n"""
+   +  """C""" + str(CustomerName) + """\r\n"""
+   +  """F""" + str(Operator)     + """\r\n"""
+   +  """N""" + str(TesterName)   + """\r\n"""
+   +  """P""" + str(ProcessStep) + """\r\n"""
+   +  """T""" + str(ResultMes) +  """"""
+      
+   
+   file = open(str(Parser_path) + str(SerialNumber) + '.txt', 'w')
+   file.write(body)
+   file.close()
+
