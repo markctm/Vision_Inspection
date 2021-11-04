@@ -31,8 +31,6 @@ def set_data_to_test(set_url,set_CustomerName,set_Division,set_serial_number,set
    ProcessStep=set_ProcessStep
    Operator=set_Operator
 
-
-
 def get_data_to_test():
 
    global url
@@ -121,7 +119,7 @@ def send_test_result(ResultMes):
    
    test_data="S"+str(SerialNumber) + "\r" +"C"+str(CustomerName) + "\r" + "F" + str(Operator) + "\r" + "N" + str(TesterName)+"\r" + "P" + str(ProcessStep) + "\r" +"T" + str(ResultMes) + "\r"
    
-   url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
+   url="http://172.24.72.186/MES-TIS/TIS.ASMX?WSDL"
    headers = {'content-type': 'text/xml'}
    body = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://jabil.com/GMS/MES_TIS">
       <soapenv:Header/>
@@ -189,11 +187,14 @@ def send_test_result_parser(Parser_path,ResultMes):
 
 
 
+
+'''
 res = set_data_to_test("http://172.24.72.186/MES-TIS/TIS.ASMX?WSDL","INGENICO","INGENICO", "SS52620702244","296171030CARGA","BRBELTE010","","Bateria")
 print(res)
 
 res=check_ok_test()
 print(res)
 
-#res =Send_test_result(Serial_Number="SS52620702244",Customer_Name="INGENICO",Operator="NO_OPERATOR",Tester_Name="BRBELCB001",Tester_Process="BATERIA",ResultMes="P" )
+res = Send_test_result(Serial_Number="SS52620702244",Customer_Name="INGENICO",Operator="NO_OPERATOR",Tester_Name="BRBELCB001",Tester_Process="BATERIA",ResultMes="P" )
 #print(res)
+'''

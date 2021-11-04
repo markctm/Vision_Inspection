@@ -157,7 +157,7 @@ class GuiMain(QDialog):
                         self.testplan.executa_teste(self.image)     
                         self.displayImage(self.image,2)
                     else:
-                        cv2.putText(self.image, "ERROR - PROCESS VERIFICATION", (50, 400), cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,255), 3, cv2.LINE_AA)
+                        cv2.putText(self.image, "ERROR - PROCESS VERIFICATION", (50, 400), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,255), 3, cv2.LINE_AA)
                         self.displayImage(self.image,2)
 
                 else:
