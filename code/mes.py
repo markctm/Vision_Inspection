@@ -82,30 +82,30 @@ def check_ok_test():
    </soapenv:Envelope>"""
 
    print(body)
-   try:
-      response = requests.post(url,data=body,headers=headers) 
-      #print(str(response.content))
+   #try:
+   response = requests.post(url,data=body,headers=headers) 
+   #print(str(response.content))
 
-            # define namespace mappings to use as shorthand below
-      namespaces = {
-         'soap': 'http://schemas.xmlsoap.org/soap/envelope/',
-         'a': 'http://jabil.com/GMS/MES_TIS',
-      }
+         # define namespace mappings to use as shorthand below
+   namespaces = {
+      'soap': 'http://schemas.xmlsoap.org/soap/envelope/',
+      'a': 'http://jabil.com/GMS/MES_TIS',
+   }
 
-      dom = ET.fromstring(response.content)     
-      
-      names = dom.findall(
-         './soap:Body'
-         '/a:OKToTestResponse'
-         '/a:OKToTestResult',
-         namespaces,
-      )
-      for name in names:
-         return str(name.text).upper().strip()
+   dom = ET.fromstring(response.content)     
+   
+   names = dom.findall(
+      './soap:Body'
+      '/a:OKToTestResponse'
+      '/a:OKToTestResult',
+      namespaces,
+   )
+   for name in names:
+      return str(name.text).upper().strip()
 
-   except OSError as e:
-      print("Erro de conexão com TIS")
-      return str("ERROR - Conection Error")
+   #except OSError as e:
+   #   print("Erro de conexão com TIS")
+   #   return str("ERROR - Conection Error")
 
 def send_test_result(ResultMes):
 
