@@ -207,15 +207,24 @@ class Test():
         text2=text2.replace(' ', '')
         text2=text2.upper()
 
-        fonte = cv2.FONT_HERSHEY_SIMPLEX 
+        fonte = cv2.FONT_HERSHEY_SIMPLEX
+
+        now = datetime.now()
+        dt_string = now.strftime("%d_%m_%Y_%H%M%S")
+        url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterName,ProcessStep,Operator = get_data_to_test()          
+        if SerialNumber=="":
+            SerialNumber=str("No_Serial" + str(dt_string))
+            print(SerialNumber) 
 
         if "3221" in text2:
             print("RESULT PASS" + str(string))
             cv2.putText(img1, "RESULT PASS FW 3.2.2.1", (50, 400), fonte, 2.5, (0,255,0), 3, cv2.LINE_AA)
+            cv2.imwrite("./logs/" + str(SerialNumber)+ "_pass.jpg",img1)   
             send_test_result("P") 
         else:
             print("RESULT FAIL")
             cv2.putText(img1, "RESULT FAIL FW 3.2.2.1", (50, 400), fonte, 2.5, (0,0,255), 3, cv2.LINE_AA)
+            cv2.imwrite("./logs/" + str(SerialNumber) +"_fail.jpg",img1)  
             send_test_result("F")
     
     def blank(self,x,y):
