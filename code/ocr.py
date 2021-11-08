@@ -20,4 +20,9 @@ thresh = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THR
 #cv2.waitKey(0)
 
 text = pytesseract.image_to_string(thresh)
+
+
+
+
+
 print(text)
