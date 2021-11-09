@@ -161,7 +161,7 @@ def send_test_result(ResultMes):
 
 
 
-def send_test_result_parser(Parser_path,ResultMes):
+def send_test_result_parser(ResultMes):
 
    global url
    global CustomerName
@@ -178,15 +178,11 @@ def send_test_result_parser(Parser_path,ResultMes):
    +  """F""" + str(Operator)     + """\r\n"""
    +  """N""" + str(TesterName)   + """\r\n"""
    +  """P""" + str(ProcessStep) + """\r\n"""
-   +  """T""" + str(ResultMes) +  """"""
-      
+   +  """T""" + str(ResultMes) +  """\r\n"""
    
-   file = open(str(Parser_path) + str(SerialNumber) + '.txt', 'w')
+   file = open("./parser1/" +str(SerialNumber) + '.txt', 'w')
    file.write(body)
    file.close()
-
-
-
 
 '''
 res = set_data_to_test("http://172.24.72.186/MES-TIS/TIS.ASMX?WSDL","INGENICO","INGENICO", "SS52620702244","296171030CARGA","BRBELTE010","","Bateria")
@@ -196,5 +192,6 @@ res=check_ok_test()
 print(res)
 
 res = Send_test_result(Serial_Number="SS52620702244",Customer_Name="INGENICO",Operator="NO_OPERATOR",Tester_Name="BRBELCB001",Tester_Process="BATERIA",ResultMes="P" )
-#print(res)
+print(res)
+
 '''
