@@ -186,7 +186,12 @@ class Test():
     def OCR_Search_FW_Version(self,string,restest,img1,imgref):
         
         image = cv2.resize(img1, (640, 480), interpolation=cv2.INTER_CUBIC)
-        #cv2.imshow("Image", image)
+       
+       
+        imagem_recorte1=np.empty((640,50))
+        imagem_recorte1=img1[200:250,0:639]
+
+        cv2.imshow("Image", imagem_recorte1)
         #cv2.waitKey(0)
 
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
