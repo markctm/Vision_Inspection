@@ -188,8 +188,8 @@ class Test():
         image = cv2.resize(img1, (640, 480), interpolation=cv2.INTER_CUBIC)
        
        
-        imagem_recorte1=np.empty((640,50))
-        imagem_recorte1=img1[0:639,200:250]
+        imagem_recorte1=np.empty((50,50))
+        imagem_recorte1=image[0:50,0:50]
 
         cv2.imshow("Image", imagem_recorte1)
         cv2.waitKey(0)
