@@ -229,7 +229,7 @@ class Test():
             SerialNumber=str("No_Serial" + str(dt_string))
             print(SerialNumber) 
 
-        if string in text2:
+        if str(string) in text2:
             print("RESULT PASS" + str(string))
             cv2.putText(img1, "RESULT PASS FW" + str(string), (50, 400), fonte, 2.5, (0,255,0), 3, cv2.LINE_AA)
             cv2.putText(img1, "OCR:" + str(text2), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
