@@ -187,16 +187,31 @@ class Test():
         
         image = cv2.resize(img1, (640, 480), interpolation=cv2.INTER_CUBIC)
         
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        blurred = cv2.GaussianBlur(gray, (3, 3), 0)
+        #gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        #blurred = cv2.GaussianBlur(gray, (3, 3), 0)
         #cv2.imshow("Image", blurred)
         #cv2.waitKey(0)
 
-        thresh = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 21, 10)
+        #thresh = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 21, 10)
         #cv2.imshow("Image", thresh)
 
         #v2.imshow("Simple Thresholding", thresh)
         #cv2.waitKey(0)
+
+        imagem_recorte1=np.empty((110,640))
+        imagem_recorte1=image[60:169,0:639]
+
+        #cv2.imshow("Image", imagem_recorte1)
+        #cv2.waitKey(0)
+        #Teste
+
+        gray = cv2.cvtColor(imagem_recorte1, cv2.COLOR_BGR2GRAY)
+
+        blurred = cv2.GaussianBlur(gray, (3, 3), 0)
+        #cv2.imshow("Image", blurred)]
+        #cv2.waitKey(0)
+
+        thresh = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 33, 15)
 
         text = pytesseract.image_to_string(thresh)
 
@@ -214,15 +229,15 @@ class Test():
             SerialNumber=str("No_Serial" + str(dt_string))
             print(SerialNumber) 
 
-        if "3221" in text2:
+        if "3352" in text2:
             print("RESULT PASS" + str(string))
-            cv2.putText(img1, "RESULT PASS FW 3.2.2.1", (50, 400), fonte, 2.5, (0,255,0), 3, cv2.LINE_AA)
+            cv2.putText(img1, "RESULT PASS FW " + str(text2) (50, 400), fonte, 2.5, (0,255,0), 3, cv2.LINE_AA)
             cv2.imwrite("./logs/" + str(SerialNumber)+ str(dt_string) + "_pass.jpg",img1)   
             #send_test_result("P")
             #send_test_result_parser("P") 
         else:
             print("RESULT FAIL")
-            cv2.putText(img1, "RESULT FAIL FW 3.2.2.1", (50, 400), fonte, 2.5, (0,0,255), 3, cv2.LINE_AA)
+            cv2.putText(img1, "RESULT FAIL FW"+ str(text2), (50, 400), fonte, 2.5, (0,0,255), 3, cv2.LINE_AA)
             cv2.imwrite("./logs/" + str(SerialNumber)+ str(dt_string) + "_fail.jpg",img1)  
             #send_test_result("F")
             #send_test_result_parser("F")
