@@ -189,7 +189,7 @@ class Test():
        
        
         imagem_recorte1=np.empty((640,50))
-        imagem_recorte1=img1[200:250,0:639]
+        imagem_recorte1=img1[0:639,200:250]
 
         cv2.imshow("Image", imagem_recorte1)
         cv2.waitKey(0)
