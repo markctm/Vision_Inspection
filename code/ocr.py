@@ -17,6 +17,7 @@ cv2.waitKey(0)
 #Teste
 
 gray = cv2.cvtColor(imagem_recorte1, cv2.COLOR_BGR2GRAY)
+
 blurred = cv2.GaussianBlur(gray, (3, 3), 0)
 cv2.imshow("Image", blurred)
 cv2.waitKey(0)
