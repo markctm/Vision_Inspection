@@ -231,7 +231,7 @@ class Test():
 
         if "3352" in text2:
             print("RESULT PASS" + str(string))
-            cv2.putText(img1, "RESULT PASS FW " + str(text2) (50, 400), fonte, 2.5, (0,255,0), 3, cv2.LINE_AA)
+            cv2.putText(img1, "RESULT PASS FW " + str(text2), (50, 400), fonte, 2.5, (0,255,0), 3, cv2.LINE_AA)
             cv2.imwrite("./logs/" + str(SerialNumber)+ str(dt_string) + "_pass.jpg",img1)   
             #send_test_result("P")
             #send_test_result_parser("P") 
