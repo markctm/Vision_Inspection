@@ -214,9 +214,13 @@ class Test():
         thresh = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 33, 15)
 
         text = pytesseract.image_to_string(thresh)
+        
 
+        #Tratamento Removendo Caracteres Ruido
         print(text)
         text2=text.replace('.', '')
+        text2=text.replace(',', '')
+        text2=text.replace('?', '')
         text2=text2.replace(' ', '')
         text2=text2.upper()
 
