@@ -219,8 +219,8 @@ class Test():
         #Tratamento Removendo Caracteres Ruido
         print(text)
         text2=text.replace('.', '')
-        text2=text.replace(',', '')
-        text2=text.replace('?', '')
+        text2=text2.replace(',', '')
+        text2=text2.replace('?', '')
         text2=text2.replace(' ', '')
         text2=text2.upper()
 
