@@ -14,6 +14,7 @@ imagem_recorte1=image[100:199,0:639]
 
 cv2.imshow("Image", imagem_recorte1)
 cv2.waitKey(0)
+#Teste
 
 gray = cv2.cvtColor(imagem_recorte1, cv2.COLOR_BGR2GRAY)
 blurred = cv2.GaussianBlur(gray, (3, 3), 0)
