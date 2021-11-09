@@ -192,7 +192,7 @@ class Test():
         imagem_recorte1=img1[200:250,0:639]
 
         cv2.imshow("Image", imagem_recorte1)
-        #cv2.waitKey(0)
+        cv2.waitKey(0)
 
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         blurred = cv2.GaussianBlur(gray, (3, 3), 0)
@@ -226,13 +226,13 @@ class Test():
             cv2.putText(img1, "RESULT PASS FW 3.2.2.1", (50, 400), fonte, 2.5, (0,255,0), 3, cv2.LINE_AA)
             cv2.imwrite("./logs/" + str(SerialNumber)+ str(dt_string) + "_pass.jpg",img1)   
             #send_test_result("P")
-            send_test_result_parser("P") 
+            #send_test_result_parser("P") 
         else:
             print("RESULT FAIL")
             cv2.putText(img1, "RESULT FAIL FW 3.2.2.1", (50, 400), fonte, 2.5, (0,0,255), 3, cv2.LINE_AA)
             cv2.imwrite("./logs/" + str(SerialNumber)+ str(dt_string) + "_fail.jpg",img1)  
             #send_test_result("F")
-            send_test_result_parser("F")
+            #send_test_result_parser("F")
     
     def blank(self,x,y):
        # print("Hello Mundo!")
