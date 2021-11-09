@@ -172,13 +172,7 @@ def send_test_result_parser(ResultMes):
    global ProcessStep
    global Operator
    
-   
-   body= """S""" + str(SerialNumber) + """\r\n"""
-   +  """C""" + str(CustomerName) + """\r\n"""
-   +  """F""" + str(Operator)     + """\r\n"""
-   +  """N""" + str(TesterName)   + """\r\n"""
-   +  """P""" + str(ProcessStep) + """\r\n"""
-   +  """T""" + str(ResultMes) +  """\r\n"""
+   body= """S""" + str(SerialNumber) + """\r\n""" +  """C""" + str(CustomerName) + """\r\n""" +  """F""" + str(Operator)  + """\r\n"""+  """N""" + str(TesterName)   + """\r\n""" +  """P""" + str(ProcessStep) + """\r\n""" +  """T""" + str(ResultMes) +  """\r\n"""
    
    file = open("./parser1/" +str(SerialNumber) + '.txt', 'w')
    file.write(body)
