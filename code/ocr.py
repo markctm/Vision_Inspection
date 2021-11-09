@@ -9,8 +9,8 @@ image = cv2.resize(image, (640, 480), interpolation=cv2.INTER_CUBIC)
 #cv2.imshow("Image", image)
 #cv2.waitKey(0)
 
-imagem_recorte1=np.empty((120,640))
-imagem_recorte1=image[50:169,0:639]
+imagem_recorte1=np.empty((110,640))
+imagem_recorte1=image[60:169,0:639]
 
 cv2.imshow("Image", imagem_recorte1)
 cv2.waitKey(0)
