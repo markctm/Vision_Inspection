@@ -231,15 +231,15 @@ class Test():
 
         if str(string) in text2:
             print("RESULT PASS" + str(string))
-            cv2.putText(img1, "RESULT PASS FW" + str(string), (50, 400), fonte, 2.5, (0,255,0), 3, cv2.LINE_AA)
-            cv2.putText(img1, "OCR:" + str(text2), (50, 430), fonte, 1, (0,255,0), 1, cv2.LINE_AA)
+            cv2.putText(img1, "RESULT PASS FW" + str(string), (50, 600), fonte, 2.5, (0,255,0), 3, cv2.LINE_AA)
+            cv2.putText(img1, "OCR:" + str(text2), (50, 630), fonte, 1, (0,255,0), 1, cv2.LINE_AA)
             cv2.imwrite("./logs/" + str(SerialNumber)+ str(dt_string) + "_pass.jpg",img1)   
             #send_test_result("P")
             #send_test_result_parser("P") 
         else:
             print("RESULT FAIL")
-            cv2.putText(img1, "RESULT FAIL FW"+ str(string), (50, 400), fonte, 2.5, (0,0,255), 3, cv2.LINE_AA)
-            cv2.putText(img1, "OCR:" + str(text2), (50, 430), fonte, 1, (0,0,255), 1, cv2.LINE_AA)
+            cv2.putText(img1, "RESULT FAIL FW"+ str(string), (50, 600), fonte, 2.5, (0,0,255), 3, cv2.LINE_AA)
+            cv2.putText(img1, "OCR:" + str(text2), (50, 630), fonte, 1, (0,0,255), 1, cv2.LINE_AA)
             cv2.imwrite("./logs/" + str(SerialNumber)+ str(dt_string) + "_fail.jpg",img1)  
             #send_test_result("F")
             #send_test_result_parser("F")
