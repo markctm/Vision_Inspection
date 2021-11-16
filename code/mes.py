@@ -11,6 +11,9 @@ TesterName= ""
 ProcessStep= ""
 Operator=""
 calibration_mode=""
+FailDescription=""
+
+
 
 def set_data_to_test(set_url,set_CustomerName,set_Division,set_serial_number,set_AssemblyNumber,set_TesterName,set_Operator,set_ProcessStep,set_calibration_mode):
 
@@ -167,7 +170,7 @@ def send_test_result(ResultMes):
       return str("Calibration Mode Activated")
 
 
-def send_test_result_parser(ResultMes):
+def send_test_result_parser(ResultMes,Fail_Description):
 
    global url
    global CustomerName
@@ -180,8 +183,13 @@ def send_test_result_parser(ResultMes):
 
    if calibration_mode==False:
    
-      body= """S""" + str(SerialNumber) + """\r\n""" +  """C""" + str(CustomerName) + """\r\n""" +  """F""" + str(Operator)  + """\r\n"""+  """N""" + str(TesterName)   + """\r\n""" +  """P""" + str(ProcessStep) + """\r\n""" +  """T""" + str(ResultMes) +  """\r\n"""
       
+      if ResultMes=="P":
+         body= """S""" + str(SerialNumber) + """\r\n""" +  """C""" + str(CustomerName) + """\r\n""" +  """F""" + str(Operator)  + """\r\n"""+  """N""" + str(TesterName)   + """\r\n""" +  """P""" + str(ProcessStep) + """\r\n""" +  """T""" + str(ResultMes) +  """\r\n""" 
+      else:
+         body= """S""" + str(SerialNumber) + """\r\n""" +  """C""" + str(CustomerName) + """\r\n""" +  """F""" + str(Operator)  + """\r\n"""+  """N""" + str(TesterName)   + """\r\n""" +  """P""" + str(ProcessStep) + """\r\n""" +  """T""" + str(ResultMes) +  """\r\n"""  +  """F""" + str(Fail_Description) +  """\r\n"""
+
+
       file = open("./parser/" +str(SerialNumber) + '.txt', 'w')
       file.write(body)
       file.close()
