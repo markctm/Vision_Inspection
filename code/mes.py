@@ -10,7 +10,7 @@ AssemblyNumber= ""
 TesterName= ""
 ProcessStep= ""
 Operator=""
-calibration_mode=""
+calibration_mode=False
 FailDescription=""
 
 
@@ -35,7 +35,7 @@ def set_data_to_test(set_url,set_CustomerName,set_Division,set_serial_number,set
    TesterName=set_TesterName
    ProcessStep=set_ProcessStep
    Operator=set_Operator
-   calibration_mode=calibration_mode
+   calibration_mode=set_calibration_mode
 
 def get_data_to_test():
 
