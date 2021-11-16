@@ -47,6 +47,7 @@ def get_data_to_test():
    global TesterName
    global ProcessStep
    global Operator
+   
 
    return str(url),str(CustomerName),str(Division),str(SerialNumber),str(AssemblyNumber),str(TesterName),str(ProcessStep),str(Operator)
 
@@ -121,6 +122,7 @@ def send_test_result(ResultMes):
    global TesterName
    global ProcessStep
    global Operator
+   global calibration_mode
    
    if calibration_mode==False:
       
@@ -180,6 +182,7 @@ def send_test_result_parser(ResultMes,Fail_Description):
    global TesterName
    global ProcessStep
    global Operator
+   global calibration_mode
 
    if calibration_mode==False:
    
