@@ -71,7 +71,7 @@ class GuiMain(QDialog):
         options = QFileDialog.Options()
         #notepad_text = self.texto.toPlainText()
         options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(self,"Open Testpan File", "/Testplan/","Testplan Files (*.tpl)", options=options)
+        fileName, _ = QFileDialog.getOpenFileName(self,"Open Testpan File", "./Testplan/","Testplan Files (*.tpl)", options=options)
         
 
         if fileName:
