@@ -10,8 +10,9 @@ AssemblyNumber= ""
 TesterName= ""
 ProcessStep= ""
 Operator=""
+calibration_mode=""
 
-def set_data_to_test(set_url,set_CustomerName,set_Division,set_serial_number,set_AssemblyNumber,set_TesterName,set_Operator,set_ProcessStep):
+def set_data_to_test(set_url,set_CustomerName,set_Division,set_serial_number,set_AssemblyNumber,set_TesterName,set_Operator,set_ProcessStep,set_calibration_mode):
 
    global url
    global CustomerName
@@ -21,6 +22,7 @@ def set_data_to_test(set_url,set_CustomerName,set_Division,set_serial_number,set
    global TesterName
    global ProcessStep
    global Operator
+   global calibration_mode
 
    url=set_url
    CustomerName=set_CustomerName
@@ -30,6 +32,7 @@ def set_data_to_test(set_url,set_CustomerName,set_Division,set_serial_number,set
    TesterName=set_TesterName
    ProcessStep=set_ProcessStep
    Operator=set_Operator
+   calibration_mode=calibration_mode
 
 def get_data_to_test():
 
@@ -116,49 +119,52 @@ def send_test_result(ResultMes):
    global ProcessStep
    global Operator
    
-   
-   test_data="S"+str(SerialNumber) + "\r" +"C"+str(CustomerName) + "\r" + "F" + str(Operator) + "\r" + "N" + str(TesterName)+"\r" + "P" + str(ProcessStep) + "\r" +"T" + str(ResultMes) + "\r"
-   
-   url="http://172.24.72.186/MES-TIS/TIS.ASMX?WSDL"
-   headers = {'content-type': 'text/xml'}
-   body = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://jabil.com/GMS/MES_TIS">
-      <soapenv:Header/>
-      <soapenv:Body>
-         <mes:ProcessTestData>
-            <!--Optional:-->
-            <mes:TestData>""" + str(test_data) + """</mes:TestData>
-            <!--Optional:-->
-            <mes:DataFormat>Generic</mes:DataFormat>
-         </mes:ProcessTestData>
-      </soapenv:Body>
-   </soapenv:Envelope>"""
-
-   try:
-      response = requests.post(url,data=body,headers=headers)
-
-      namespaces = {
-         'soap': 'http://schemas.xmlsoap.org/soap/envelope/',
-         'a': 'http://jabil.com/GMS/MES_TIS',
-      }
-
-      dom = ET.fromstring(response.content)     
+   if calibration_mode==False:
       
-      names = dom.findall(
-         './soap:Body'
-         '/a:ProcessTestDataResponse'
-         '/a:ProcessTestDataResult',
-         namespaces,
-      )
+      test_data="S"+str(SerialNumber) + "\r" +"C"+str(CustomerName) + "\r" + "F" + str(Operator) + "\r" + "N" + str(TesterName)+"\r" + "P" + str(ProcessStep) + "\r" +"T" + str(ResultMes) + "\r"
+      
+      url="http://172.24.72.186/MES-TIS/TIS.ASMX?WSDL"
+      headers = {'content-type': 'text/xml'}
+      body = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://jabil.com/GMS/MES_TIS">
+         <soapenv:Header/>
+         <soapenv:Body>
+            <mes:ProcessTestData>
+               <!--Optional:-->
+               <mes:TestData>""" + str(test_data) + """</mes:TestData>
+               <!--Optional:-->
+               <mes:DataFormat>Generic</mes:DataFormat>
+            </mes:ProcessTestData>
+         </soapenv:Body>
+      </soapenv:Envelope>"""
 
-      for name in names:
-         return str(name.text).upper().strip()
+      try:
+         response = requests.post(url,data=body,headers=headers)
 
-   except OSError as e:
+         namespaces = {
+            'soap': 'http://schemas.xmlsoap.org/soap/envelope/',
+            'a': 'http://jabil.com/GMS/MES_TIS',
+         }
 
-      print("Erro de conexão com TIS")
-      return str("ERROR - Conection Error")
+         dom = ET.fromstring(response.content)     
+         
+         names = dom.findall(
+            './soap:Body'
+            '/a:ProcessTestDataResponse'
+            '/a:ProcessTestDataResult',
+            namespaces,
+         )
 
+         for name in names:
+            return str(name.text).upper().strip()
 
+      except OSError as e:
+
+         print("Erro de conexão com TIS")
+         return str("ERROR - Conection Error")
+
+   else:
+      print("Calibration Mode Activated")
+      return str("Calibration Mode Activated")
 
 
 def send_test_result_parser(ResultMes):
@@ -171,12 +177,16 @@ def send_test_result_parser(ResultMes):
    global TesterName
    global ProcessStep
    global Operator
+
+   if calibration_mode==False:
    
-   body= """S""" + str(SerialNumber) + """\r\n""" +  """C""" + str(CustomerName) + """\r\n""" +  """F""" + str(Operator)  + """\r\n"""+  """N""" + str(TesterName)   + """\r\n""" +  """P""" + str(ProcessStep) + """\r\n""" +  """T""" + str(ResultMes) +  """\r\n"""
-   
-   file = open("./parser/" +str(SerialNumber) + '.txt', 'w')
-   file.write(body)
-   file.close()
+      body= """S""" + str(SerialNumber) + """\r\n""" +  """C""" + str(CustomerName) + """\r\n""" +  """F""" + str(Operator)  + """\r\n"""+  """N""" + str(TesterName)   + """\r\n""" +  """P""" + str(ProcessStep) + """\r\n""" +  """T""" + str(ResultMes) +  """\r\n"""
+      
+      file = open("./parser/" +str(SerialNumber) + '.txt', 'w')
+      file.write(body)
+      file.close()
+
+
 
 '''
 res = set_data_to_test("http://172.24.72.186/MES-TIS/TIS.ASMX?WSDL","INGENICO","INGENICO", "SS52620702244","296171030CARGA","BRBELTE010","","Bateria")
