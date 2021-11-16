@@ -150,6 +150,9 @@ class GuiMain(QDialog):
 
                 if self.tesplan_load==True:
 
+                    print("TESTE CALIBRATION MODE")
+                    print(str(self.checkBox_calibration_mode.isChecked()))
+
                     set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step,self.checkBox_calibration_mode.isChecked())                    
                     res=None
                     if self.checkBox_calibration_mode.isChecked()==False:
