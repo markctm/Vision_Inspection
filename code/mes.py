@@ -184,6 +184,8 @@ def send_test_result_parser(ResultMes,Fail_Description):
    global Operator
    global calibration_mode
 
+   print("Calibration Mode:" + str(calibration_mode))
+
    if calibration_mode==False:
    
       
@@ -192,6 +194,7 @@ def send_test_result_parser(ResultMes,Fail_Description):
       else:
          body= """S""" + str(SerialNumber) + """\r\n""" +  """C""" + str(CustomerName) + """\r\n""" +  """F""" + str(Operator)  + """\r\n"""+  """N""" + str(TesterName)   + """\r\n""" +  """P""" + str(ProcessStep) + """\r\n""" +  """T""" + str(ResultMes) +  """\r\n"""  +  """F""" + str(Fail_Description) +  """\r\n"""
 
+      print(str(body))
 
       file = open("./parser/" +str(SerialNumber) + '.txt', 'w')
       file.write(body)
