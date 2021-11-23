@@ -63,7 +63,7 @@ class GuiMain(QDialog):
         #Corrigindo Bugs da Interface 
         self.timer2 = QTimer(self)
         self.timer3 = QTimer(self)
-        self.clear_once_flag
+        self.clear_once_flag=True
 
         #self.start_webcam()
         self.capture=Camera(1280,1080,dispositivo=0,camera_type='WEBCAM')
