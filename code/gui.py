@@ -61,6 +61,8 @@ class GuiMain(QDialog):
         self.TIS_url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
             
         self.timer2 = QTimer(self)
+        self.timer3 = QTimer(self)
+
         #self.start_webcam()
         self.capture=Camera(1280,1080,dispositivo=0,camera_type='WEBCAM')
         
@@ -82,8 +84,7 @@ class GuiMain(QDialog):
               
             #Inicializa Modelo de Preprocessamento
             #self.preprocess= Preprocess(produto='solo',posto=1)
-
-            
+         
             self.load_config(self.testplan.produto)
             self.tesplan_load=True
             self.label_2.setText(str(self.testplan.produto))
@@ -159,8 +160,14 @@ class GuiMain(QDialog):
                         res=check_ok_test()
 
                     if(res=="PASS") or (self.checkBox_calibration_mode.isChecked()):
+ 
+                        self.timer3.setInterval(4000)
+                        self.timer3.setSingleShot(True) 
+                        self.timer3.start() 
+
                         self.testplan.executa_teste(self.image)     
                         self.displayImage(self.image,2)
+
                     else:
                         cv2.putText(self.image, "ERROR - PROCESS VERIFICATION", (50, 400), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,255), 3, cv2.LINE_AA)
                         self.displayImage(self.image,2)
@@ -197,6 +204,10 @@ class GuiMain(QDialog):
     def update_frame(self):
         ret, self.image = self.capture.camera_read()
 
+        if self.timer3.isActive()==False:
+            img=self.create_blank(1280, 1080, rgb_color=(194, 197, 204))
+            self.displayImage(img,2)
+            
         if self.image is None:
             QMessageBox.about(self, "Camera       ", "Error Camera!")
             self.camera_ok=False
