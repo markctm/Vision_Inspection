@@ -60,8 +60,10 @@ class GuiMain(QDialog):
         self.operator_name=""
         self.TIS_url="http://brbelm0cmp01/MES-TIS/TIS.ASMX?WSDL"
             
+        #Corrigindo Bugs da Interface 
         self.timer2 = QTimer(self)
         self.timer3 = QTimer(self)
+        self.clear_once_flag
 
         #self.start_webcam()
         self.capture=Camera(1280,1080,dispositivo=0,camera_type='WEBCAM')
@@ -163,7 +165,8 @@ class GuiMain(QDialog):
  
                         self.timer3.setInterval(4000)
                         self.timer3.setSingleShot(True) 
-                        self.timer3.start() 
+                        self.timer3.start()
+                        self.clear_once_flag=False 
 
                         self.testplan.executa_teste(self.image)     
                         self.displayImage(self.image,2)
@@ -204,7 +207,8 @@ class GuiMain(QDialog):
     def update_frame(self):
         ret, self.image = self.capture.camera_read()
 
-        if self.timer3.isActive()==False:
+        if self.timer3.isActive()==False and self.clear_once_flag==False:
+            self.clear_once_flag=True
             img=self.create_blank(1280, 1080, rgb_color=(194, 197, 204))
             self.displayImage(img,2)
             
