@@ -172,7 +172,7 @@ def send_test_result(ResultMes):
       return str("Calibration Mode Activated")
 
 
-def send_test_result_parser(ResultMes="",Fail_Description="",Firmware_Revision=""):
+def send_test_result_parser(ResultMes="",Fail_Description="",Fixture=""):
 
    global url
    global CustomerName
@@ -190,7 +190,7 @@ def send_test_result_parser(ResultMes="",Fail_Description="",Firmware_Revision="
    
       
       if ResultMes=="P":
-         body= """S""" + str(SerialNumber) + """\r\n""" +  """C""" + str(CustomerName) + """\r\n""" +  """F""" + str(Operator)  + """\r\n"""+  """N""" + str(TesterName)   + """\r\n""" +  """P""" + str(ProcessStep) + """\r\n""" +  """T""" + str(ResultMes) +  """\r\n""" +  """W""" + str(Firmware_Revision) +  """\r\n"""
+         body= """S""" + str(SerialNumber) + """\r\n""" +  """C""" + str(CustomerName) + """\r\n""" +  """F""" + str(Operator)  + """\r\n"""+  """N""" + str(TesterName)   + """\r\n""" +  """P""" + str(ProcessStep) + """\r\n""" +  """T""" + str(ResultMes) +  """\r\n""" +  """f""" + str(Fixture) +  """\r\n"""
       else:
          body= """S""" + str(SerialNumber) + """\r\n""" +  """C""" + str(CustomerName) + """\r\n""" +  """F""" + str(Operator)  + """\r\n"""+  """N""" + str(TesterName)   + """\r\n""" +  """P""" + str(ProcessStep) + """\r\n""" +  """T""" + str(ResultMes) +  """\r\n"""  +  """F""" + str(Fail_Description) +  """\r\n"""
 

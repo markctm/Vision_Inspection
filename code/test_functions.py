@@ -240,7 +240,7 @@ class Test():
             cv2.imwrite("./logs/" + str(SerialNumber)+"_" + str(dt_string) + "_pass.jpg",img1)   
             #send_test_result("P")
             #send_test_result_parser("P","") 
-            send_test_result_parser(ResultMes="P",Firmware_Revision=string)
+            send_test_result_parser(ResultMes="P",Fixture=string)
         else:
             print("RESULT FAIL")
             cv2.putText(img1, "RESULT FAIL FW"+ str(string), (50, 600), fonte, 2.5, (0,0,255), 3, cv2.LINE_AA)
@@ -248,7 +248,7 @@ class Test():
             cv2.imwrite("./logs/" + str(SerialNumber)+"_"+ str(dt_string) + "_fail.jpg",img1)  
             #send_test_result("F")
             #send_test_result_parser("F","FAIL FIRMWARE VERSION "+ str(string))
-            send_test_result_parser(ResultMes="F",Firmware_Revision=str("FAIL FIRMWARE VERSION "+ str(string)))
+            send_test_result_parser(ResultMes="F",Fail_Description=str("FAIL FIRMWARE VERSION "+ str(string)))
     def blank(self,x,y):
        # print("Hello Mundo!")
        # print(x)
