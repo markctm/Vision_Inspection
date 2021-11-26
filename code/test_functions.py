@@ -170,14 +170,14 @@ class Test():
             if(score>int(tresh)):
                 cv2.putText(img1, "PASS - LABEL DETECTED", (50, 400), fonte, 3, (0,255,0), 3, cv2.LINE_AA)           
                 cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
-                #send_test_result("P")
+                send_test_result("P")
                 cv2.imwrite("./logs/" + str(SerialNumber)+ "_pass.jpg",img1)    
             
             elif(score<int(tresh)) and (score>=0):
                 cv2.putText(img1, "FAIL- NO LABEL", (50, 400), fonte, 3, (0,0,255), 3, cv2.LINE_AA)
                 cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
                 cv2.imwrite("./logs/" + str(SerialNumber) +"_fail.jpg",img1)  
-                #send_test_result("F")    
+                send_test_result("F")    
             #cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
         
         return score
