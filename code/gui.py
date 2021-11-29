@@ -29,7 +29,7 @@ class GuiMain(QDialog):
         self.imageTest=None
         self.tesplan_load=False
         self.camera_ok=False
-        self.sw_version="Inline_Inspection_v0.0.1"
+        self.sw_version="Inline_Inspection_v1.0.2"
         self.sw_version_label.setText(self.sw_version)
 
         self.start_button.clicked.connect(self.start_webcam)
