@@ -25,4 +25,5 @@ services:
     environment:
       - DISPLAY=$DISPLAY
     privileged: true
+    network_mode: "host"
 
