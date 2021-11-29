@@ -11,9 +11,9 @@ RUN apt-get install -y qt5-default
 RUN apt-get install -y python3-pyqt5.qtquick python3-pyside2.qtquick python3-pyside2.qtquickwidgets qml-module-qtquick-controls2 qml-module-qtquick2
 RUN apt-get install -y tesseract-ocr
 
-#WORKDIR /home/pi/Desktop/Vision_Inspection/code/
+WORKDIR /home/pi/Desktop/Vision_Inspection/code/
 
-WORKDIR /appsrc
+#WORKDIR /appsrc
 COPY ./ /home/pi/Desktop/Vision_Inspection/code/
 
 ADD requirements.txt ./requirements.txt
