@@ -98,7 +98,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="Camera_tab">
     <attribute name="title">
@@ -404,6 +404,22 @@
      </property>
      <property name="text">
       <string>Enable Log Images</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_calibration_mode_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>151</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Enable Log Images2</string>
      </property>
      <property name="checked">
       <bool>false</bool>
