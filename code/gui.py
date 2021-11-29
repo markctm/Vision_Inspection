@@ -116,6 +116,7 @@ class GuiMain(QDialog):
             self.set_zoom()
             self.set_exposure()
 
+
             for x in root.findall('mes'):
                 self.customer=x.find('Customer').text
                 self.division=x.find('Division').text      
