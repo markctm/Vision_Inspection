@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Created on Tue Dec  4 01:41:32 2018
-
-@author: trio_pu
+Project: Vision Inspection 
+@author: Mark Moreira 
 """
 
 from camera import Camera 
@@ -107,6 +106,12 @@ class GuiMain(QDialog):
             self.exposure_slide.setValue(int(exposure))
             self.focus_slide.setValue(int(focus))
 
+            self.set_focus()
+            self.set_zoom()
+            self.set_exposure()
+
+            #BUG - PRIMEIRO SET
+            # Colocando para Setar duas vezes para correção de BUG 
             self.set_focus()
             self.set_zoom()
             self.set_exposure()
