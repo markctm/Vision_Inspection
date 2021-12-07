@@ -19,6 +19,7 @@ from preprocessing import Preprocess
 import xml.etree.ElementTree as ET
 import os 
 from mes import *
+from datetime import datetime
 
 class GuiMain(QDialog):
     def __init__(self):
@@ -110,7 +111,7 @@ class GuiMain(QDialog):
             self.set_zoom()
             self.set_exposure()
 
-            #BUG - PRIMEIRO SET
+            #BUG - PRIMEIRO SET - 
             # Colocando para Setar duas vezes para correção de BUG 
             self.set_focus()
             self.set_zoom()
@@ -145,22 +146,17 @@ class GuiMain(QDialog):
             self.timer2.setSingleShot(True) 
             self.timer2.start() 
 
-            print("PRESSED\n") 
-
             self.Serial_Number= self.lineEdit_serial.text()
             self.label_SerialNumber.setText(str(self.Serial_Number))  
             self.lineEdit_serial.clear()   
 
             img=self.create_blank(1280, 1080, rgb_color=(0, 0, 0))
             self.displayImage(img,2)
+            
             #COMMMENT
-
             if self.camera_ok==True:
 
                 if self.tesplan_load==True:
-
-                    print("TESTE CALIBRATION MODE")
-                    print(str(self.checkBox_calibration_mode.isChecked()))
 
                     set_data_to_test(self.TIS_url,self.customer,self.customer,self.Serial_Number,self.assembly_nummber,self.tester_name,self.operator_name,self.process_step,self.checkBox_calibration_mode.isChecked())                    
                     res=None
@@ -169,13 +165,28 @@ class GuiMain(QDialog):
 
                     if(res=="PASS") or (self.checkBox_calibration_mode.isChecked()):
  
+                        #EXECUTA OS TESTES
+                        self.testplan.executa_teste(self.image)   
+
+                        #DISPARA TIMER DE CLEAR 
                         self.timer3.setInterval(4000)
                         self.timer3.setSingleShot(True) 
                         self.timer3.start()
-                        self.clear_once_flag=False 
+                        self.clear_once_flag=False
 
-                        self.testplan.executa_teste(self.image)     
+                        #EXIBIR RESULTADO DISPLAY 2
                         self.displayImage(self.image,2)
+
+                        #SALVA LOG IMAGE
+                        if self.checkBox_enable_log.isChecked():
+                            now = datetime.now()
+                            dt_string = now.strftime("%d_%m_%Y_%H%M%S")          
+                            log_file_name=""
+                            if self.Serial_Number=="":
+                                log_file_name="No_Serial"
+
+                            cv2.imwrite("./logs/" + str(self.Serial_Number) + str(log_file_name) + str(dt_string) +".jpg",self.image)  
+
 
                     else:
                         cv2.putText(self.image, "ERROR - PROCESS VERIFICATION", (50, 400), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,255), 3, cv2.LINE_AA)
