@@ -7,6 +7,12 @@ import pytesseract
 
 class Test():
  
+    def __init__(self):
+
+        self.Serial_Number_List=[]
+        self.Retest_Before_Fail=3
+    
+    
     def Test_Version(self,a=None,b=None):
         version='0.0.1'
         print(str(version))
@@ -94,7 +100,6 @@ class Test():
         return score
         
 
-
     def check_CoinCell(self,x1,y1,x2,y2,img1,imgref):
         
         imagem_recorte1=np.empty((x2-x1,y2-y1))
@@ -165,7 +170,11 @@ class Test():
             if SerialNumber=="":
                 SerialNumber=str("No_Serial" + str(dt_string))
                 print(SerialNumber)
-
+  
+            #PARA IMPLEMENTAR
+            #list.count("1234")
+            #list.remove("1234")           
+            
             #RESULT OF TEST 
             if(score>int(tresh)):
                 cv2.putText(img1, "PASS - LABEL DETECTED", (50, 400), fonte, 3, (0,255,0), 3, cv2.LINE_AA)           
@@ -217,6 +226,7 @@ class Test():
         
 
         #Tratamento Removendo Caracteres Ruido
+
         print(text)
         text2=text.replace('.', '')
         text2=text2.replace(',', '')
@@ -224,8 +234,10 @@ class Test():
         text2=text2.replace(' ', '')
         text2=text2.upper()
 
-        fonte = cv2.FONT_HERSHEY_SIMPLEX
 
+        #Tratamento de Serial Number 
+
+        fonte = cv2.FONT_HERSHEY_SIMPLEX
         now = datetime.now()
         dt_string = now.strftime("%d_%m_%Y_%H%M%S")
         url,CustomerName,Division,SerialNumber,AssemblyNumber,TesterName,ProcessStep,Operator = get_data_to_test()          
@@ -233,27 +245,56 @@ class Test():
             SerialNumber=str("No_Serial" + str(dt_string))
             print(SerialNumber) 
 
+        #-----Inclusão de Serial Number---------
+
+        self.Set_Serial_TestTime_List(self,SerialNumber) 
+
+        #-----RESULTADO TESTE---------
+        
         if str(string) in text2:
             print("RESULT PASS" + str(string))
             cv2.putText(img1, "RESULT PASS FW" + str(string), (50, 600), fonte, 2.5, (0,255,0), 3, cv2.LINE_AA)
             cv2.putText(img1, "OCR:" + str(text2), (50, 630), fonte, 1, (0,255,0), 1, cv2.LINE_AA)
             cv2.imwrite("./logs/" + str(SerialNumber)+"_" + str(dt_string) + "_pass.jpg",img1)   
             #send_test_result("P")
-            #send_test_result_parser("P","") 
             send_test_result_parser(ResultMes="P",Fixture=string)
+        
         else:
             print("RESULT FAIL")
             cv2.putText(img1, "RESULT FAIL FW"+ str(string), (50, 600), fonte, 2.5, (0,0,255), 3, cv2.LINE_AA)
             cv2.putText(img1, "OCR:" + str(text2), (50, 630), fonte, 1, (0,0,255), 1, cv2.LINE_AA)
+            
+            
+            if (self.Count_Serial_TestTime_Occurence(SerialNumber) > self.Get_Retest_Times_Before_Fail()):
+                #send_test_result("F")
+                send_test_result_parser(ResultMes="F",Fail_Description=str("FAIL FIRMWARE VERSION "+ str(string)))
+
             cv2.imwrite("./logs/" + str(SerialNumber)+"_"+ str(dt_string) + "_fail.jpg",img1)  
-            #send_test_result("F")
-            #send_test_result_parser("F","FAIL FIRMWARE VERSION "+ str(string))
-            send_test_result_parser(ResultMes="F",Fail_Description=str("FAIL FIRMWARE VERSION "+ str(string)))
+
+
     def blank(self,x,y):
        # print("Hello Mundo!")
        # print(x)
        # print(y)
         pass
+
+    def Set_Retest_Times_Before_Fail(self,retest_number): 
+        self.Retest_Before_Fail=retest_number
+
+    def Get_Retest_Times_Before_Fail(self):
+        return self.Retest_Before_Fail
+
+    def Set_Serial_TestTime_List(self,Serial_Num):    
+        
+        #---PARA--IMPLEMENTAR----
+        self.Serial_Number_List.append(Serial_Num)
+        #----
+        return self.Serial_Number_List.count(Serial_Num)
+
+    def Count_Serial_TestTime_Occurence(self,Serial_Num):       
+        
+        return self.Serial_Number_List.count(Serial_Num)
+        
 
 
 
