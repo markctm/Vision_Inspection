@@ -3,7 +3,7 @@ services:
   inspection_service:
     build: 
       dockerfile: Dockerfile
-      #context: . 
+      context: . 
     #image: markctm/vision_inspection_service
     container_name: Vision_Inspection2
     #command: /bin/bash
