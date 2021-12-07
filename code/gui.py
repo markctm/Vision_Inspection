@@ -178,7 +178,7 @@ class GuiMain(QDialog):
                         self.displayImage(self.image,2)
 
                         #SALVA LOG IMAGE
-                        if self.checkBox_enable_log.isChecked():
+                        if self.checkBox_enable_logs.isChecked():
                             now = datetime.now()
                             dt_string = now.strftime("%d_%m_%Y_%H%M%S")          
                             log_file_name=""
