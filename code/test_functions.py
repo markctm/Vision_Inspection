@@ -263,6 +263,10 @@ class Test():
             print("RESULT FAIL")
             cv2.putText(img1, "RESULT FAIL FW"+ str(string), (50, 600), fonte, 2.5, (0,0,255), 3, cv2.LINE_AA)
             cv2.putText(img1, "OCR:" + str(text2), (50, 630), fonte, 1, (0,0,255), 1, cv2.LINE_AA)
+                      
+            print("retest numbers:")
+            print(str(self.Count_Serial_TestTime_Occurence(SerialNumber)))
+            print(str(self.Get_Retest_Times_Before_Fail()))
             
             
             if (self.Count_Serial_TestTime_Occurence(SerialNumber) > self.Get_Retest_Times_Before_Fail()):
