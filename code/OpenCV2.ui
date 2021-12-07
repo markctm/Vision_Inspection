@@ -481,8 +481,8 @@
   <widget class="QLabel" name="sw_version_label">
    <property name="geometry">
     <rect>
-     <x>1170</x>
-     <y>840</y>
+     <x>1140</x>
+     <y>870</y>
      <width>211</width>
      <height>16</height>
     </rect>
