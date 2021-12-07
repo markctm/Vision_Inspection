@@ -1,10 +1,10 @@
 version: '3'
 services:
   inspection_service:
-    #build: 
-      #dockerfile: Dockerfile
+    build: 
+      dockerfile: Dockerfile
       #context: . 
-    image: markctm/vision_inspection_service
+    #image: markctm/vision_inspection_service
     container_name: Vision_Inspection2
     #command: /bin/bash
     stdin_open: true
