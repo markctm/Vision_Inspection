@@ -306,7 +306,7 @@ class Test():
         
     def Clear_Serial_TestTime_Occurence(self,Serial_Num):       
         
-        for times in Test.Serial_Number_List.count(Serial_Num):
+        for times in range(Test.Serial_Number_List.count(Serial_Num)):
             Test.Serial_Number_List.remove(Serial_Num)     
         
         
