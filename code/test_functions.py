@@ -6,18 +6,17 @@ from datetime import datetime
 import pytesseract 
 
 class Test():
- 
+
+    Serial_Number_List=[]
+
     def __init__(self):
-    
-        self.Serial_Number_List=[]
+
         self.Retest_Before_Fail=3
-    
-    
+        
     def Test_Version(self,a=None,b=None):
         version='0.0.1'
         print(str(version))
         return version
-    
       
     def check_espuma(self,x1,y1,x2,y2,img1,imgref):
         
@@ -292,14 +291,14 @@ class Test():
     def Set_Serial_TestTime_List(self,Serial_Num):    
         
         #---PARA--IMPLEMENTAR----
-        self.Serial_Number_List.append(Serial_Num)
-        print(self.Serial_Number_List)
+        Test.Serial_Number_List.append(Serial_Num)
+        print(Test.Serial_Number_List)
         #----
-        return self.Serial_Number_List.count(Serial_Num)
+        return Test.Serial_Number_List.count(Serial_Num)
 
     def Count_Serial_TestTime_Occurence(self,Serial_Num):       
         
-        return self.Serial_Number_List.count(Serial_Num)
+        return Test.Serial_Number_List.count(Serial_Num)
         
 
 
