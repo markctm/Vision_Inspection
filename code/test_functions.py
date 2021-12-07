@@ -11,7 +11,7 @@ class Test():
 
     def __init__(self):
 
-        self.Retest_Before_Fail=3
+        self.Retest_Before_Fail=2
         
     def Test_Version(self,a=None,b=None):
         version='0.0.1'
@@ -262,7 +262,8 @@ class Test():
             print("RESULT FAIL")
             cv2.putText(img1, "RESULT FAIL FW"+ str(string), (50, 600), fonte, 2.5, (0,0,255), 3, cv2.LINE_AA)
             cv2.putText(img1, "OCR:" + str(text2), (50, 630), fonte, 1, (0,0,255), 1, cv2.LINE_AA)
-                      
+                     
+            
             print("retest numbers:")
             print(str(self.Count_Serial_TestTime_Occurence(SerialNumber)))
             print(str(self.Get_Retest_Times_Before_Fail()))
@@ -271,8 +272,10 @@ class Test():
             if (self.Count_Serial_TestTime_Occurence(SerialNumber) > self.Get_Retest_Times_Before_Fail()):
                 #send_test_result("F")
                 send_test_result_parser(ResultMes="F",Fail_Description=str("FAIL FIRMWARE VERSION "+ str(string)))
-                cv2.putText(img1, "RETEST NUMBER: "+ str(self.Count_Serial_TestTime_Occurence(SerialNumber)), (50, 660), fonte, 1.5, (0,0,255), 2, cv2.LINE_AA)
-
+                cv2.putText(img1, "MES REJECTION"+ str(self.Count_Serial_TestTime_Occurence(SerialNumber)), (50, 680), fonte, 1, (0,0,255), 1.5, cv2.LINE_AA)
+            else:
+                cv2.putText(img1, "RETEST NUMBER: "+ str(self.Count_Serial_TestTime_Occurence(SerialNumber)), (50, 680), fonte, 1, (0,0,255), 1.5, cv2.LINE_AA) 
+            
             cv2.imwrite("./logs/" + str(SerialNumber)+"_"+ str(dt_string) + "_fail.jpg",img1)  
 
 
