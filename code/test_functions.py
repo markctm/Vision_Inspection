@@ -276,7 +276,7 @@ class Test():
             else:
                 cv2.putText(img1, "RETEST NUMBER:"+ str(self.Count_Serial_TestTime_Occurence(SerialNumber)), (50, 680), fonte, 1.5, (0,0,255), 1.5, cv2.LINE_AA) 
             
-            cv2.imwrite("./logs/" + str(SerialNumber)+"_"+ str(dt_string) + "_fail.jpg",img1)  
+            cv2.imwrite("./logs/" + str(SerialNumber)+ "_"+ str(dt_string) + "_fail.jpg",img1)  
 
 
     def blank(self,x,y):
