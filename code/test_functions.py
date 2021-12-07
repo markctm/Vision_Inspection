@@ -8,7 +8,7 @@ import pytesseract
 class Test():
  
     def __init__(self):
-
+    
         self.Serial_Number_List=[]
         self.Retest_Before_Fail=3
     
@@ -247,7 +247,7 @@ class Test():
 
         #-----Inclusão de Serial Number---------
 
-        self.Set_Serial_TestTime_List(self,SerialNumber) 
+        self.Set_Serial_TestTime_List(SerialNumber) 
 
         #-----RESULTADO TESTE---------
         
