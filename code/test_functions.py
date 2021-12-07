@@ -268,6 +268,7 @@ class Test():
             if (self.Count_Serial_TestTime_Occurence(SerialNumber) > self.Get_Retest_Times_Before_Fail()):
                 #send_test_result("F")
                 send_test_result_parser(ResultMes="F",Fail_Description=str("FAIL FIRMWARE VERSION "+ str(string)))
+                cv2.putText(img1, "RETEST NUMBER: "+ str(self.Count_Serial_TestTime_Occurence(SerialNumber)), (50, 660), fonte, 1.5, (0,0,255), 2, cv2.LINE_AA)
 
             cv2.imwrite("./logs/" + str(SerialNumber)+"_"+ str(dt_string) + "_fail.jpg",img1)  
 
