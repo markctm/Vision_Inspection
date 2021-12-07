@@ -293,6 +293,7 @@ class Test():
         
         #---PARA--IMPLEMENTAR----
         self.Serial_Number_List.append(Serial_Num)
+        print(self.Serial_Number_List)
         #----
         return self.Serial_Number_List.count(Serial_Num)
 
