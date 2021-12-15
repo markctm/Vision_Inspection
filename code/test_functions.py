@@ -170,22 +170,37 @@ class Test():
                 SerialNumber=str("No_Serial" + str(dt_string))
                 print(SerialNumber)
   
-            #PARA IMPLEMENTAR
-            #list.count("1234")
-            #list.remove("1234")           
+            #-----Inclusão de Serial Number---------
+
+            self.Set_Serial_TestTime_List(SerialNumber)       
             
             #RESULT OF TEST 
             if(score>int(tresh)):
                 cv2.putText(img1, "PASS - LABEL DETECTED", (50, 400), fonte, 3, (0,255,0), 3, cv2.LINE_AA)           
                 cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
                 send_test_result("P")
-                cv2.imwrite("./logs/" + str(SerialNumber)+ "_pass.jpg",img1)    
+                #cv2.imwrite("./logs/" + str(SerialNumber)+ "_pass.jpg",img1)    
             
             elif(score<int(tresh)) and (score>=0):
                 cv2.putText(img1, "FAIL- NO LABEL", (50, 400), fonte, 3, (0,0,255), 3, cv2.LINE_AA)
                 cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
-                cv2.imwrite("./logs/" + str(SerialNumber) +"_fail.jpg",img1)  
-                send_test_result("F")    
+                
+                #send_test_result("F")
+
+                print("retest numbers:")
+                print(str(self.Count_Serial_TestTime_Occurence(SerialNumber)))
+                print(str(self.Get_Retest_Times_Before_Fail()))
+                
+                
+                if (self.Count_Serial_TestTime_Occurence(SerialNumber) > self.Get_Retest_Times_Before_Fail()):
+                    send_test_result("F")
+                    #send_test_result_parser(ResultMes="F",Fail_Description=str("FAIL FIRMWARE VERSION "+ str(string)))
+                    cv2.putText(img1, "MES REJECTION"+ str(self.Count_Serial_TestTime_Occurence(SerialNumber)), (50, 680), fonte, 1.5, (0,0,255), 2, cv2.LINE_AA)
+                else:
+                    cv2.putText(img1, "RETEST NUMBER:"+ str(self.Count_Serial_TestTime_Occurence(SerialNumber)), (50, 680), fonte, 1.5, (0,0,255), 2, cv2.LINE_AA)
+
+                #cv2.imwrite("./logs/" + str(SerialNumber) +"_fail.jpg",img1)  
+
             #cv2.putText(img1, "Score:" + str(score), (50, 430), fonte, 1, (125,255,255), 1, cv2.LINE_AA)
         
         return score
